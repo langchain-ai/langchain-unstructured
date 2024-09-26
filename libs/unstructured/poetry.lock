@@ -4627,4 +4627,4 @@ local = ["unstructured"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<4.0"
-content-hash = "22ad2ce29851cbeecedadba384215136d6a99e00c62867f7c88ae18359314635"
+content-hash = "7f003be51a3cc0e99b55131dc1527e9deeb1843fda28b9e6fb4b3397852a8b2d"

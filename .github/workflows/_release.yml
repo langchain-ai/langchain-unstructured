@@ -12,11 +12,11 @@ on:
       working-directory:
         required: true
         type: string
-        default: 'libs/{lib}'
+        default: 'libs/unstructured'
 
 env:
   PYTHON_VERSION: "3.11"
-  POETRY_VERSION: "1.7.1"
+  POETRY_VERSION: "1.8.3"
 
 jobs:
   build:
@@ -159,7 +159,7 @@ jobs:
 
       - name: Run integration tests
         env:
-          PARTNER_API_KEY: ${{ secrets.PARTNER_API_KEY }}
+          UNSTRUCTURED_API_KEY: ${{ secrets.UNSTRUCTURED_API_KEY }}
         run: make integration_tests
         working-directory: ${{ inputs.working-directory }}
 

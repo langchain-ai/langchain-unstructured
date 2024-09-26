@@ -9,24 +9,6 @@ This repository contains 1 package with Unstructured integrations with LangChain
 This setup assumes that the partner package is already split. For those instructions,
 see [these docs](https://python.langchain.com/docs/contributing/integrations#partner-packages).
 
-Code (auto ecli)
-
-- [ ] Fill out the readme above (for folks that follow pypi link)
-- [ ] Copy package into /libs folder
-- [ ] Update these fields in /libs/*/pyproject.toml
-
-    - `tool.poetry.repository`
-    - `tool.poetry.urls["Source Code"]`
-
-Workflow code (auto ecli)
-
-- [ ] Populate .github/workflows/_release.yml with `on.workflow_dispatch.inputs.working-directory.default`
-- [ ] Configure `LIB_DIRS` in .github/scripts/check_diff.py
-
-Workflow code (manual)
-
-- [ ] Add secrets as env vars in .github/workflows/_release.yml
-
 In github (manual)
 
 - [ ] Add integration testing secrets in Github (ask Erick for help)

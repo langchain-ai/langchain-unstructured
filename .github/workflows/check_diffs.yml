@@ -38,7 +38,7 @@ jobs:
   lint:
     name: cd ${{ matrix.working-directory }}
     needs: [ build ]
-    if: ${{ needs.build.outputs.dirs-to-lint != '[]' }}
+    if: ${{ needs.build.outputs.dirs-to-lint && needs.build.outputs.dirs-to-lint != '[]' }}
     strategy:
       matrix:
         working-directory: ${{ fromJson(needs.build.outputs.dirs-to-lint) }}

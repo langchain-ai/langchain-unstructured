@@ -75,12 +75,25 @@ jobs:
           path: |
             ${{ env.WORKDIR }}/.mypy_cache
           key: mypy-lint-${{ runner.os }}-${{ runner.arch }}-py${{ matrix.python-version }}-${{ inputs.working-directory }}-${{ hashFiles(format('{0}/poetry.lock', inputs.working-directory)) }}
+          restore-keys: mypy-lint-${{ runner.os }}-${{ runner.arch }}-py${{ matrix.python-version }}-
 
+      - name: Clear Poetry Cache
+        run: |
+          poetry cache clear pypi --all
+
+      - name: Clean up temporary files
+        run: |
+          rm -rf ${{ env.WORKDIR }}/.mypy_cache
+          rm -rf ${{ env.WORKDIR }}/.mypy_cache_test
+          poetry cache clear pypi --all
+          rm -rf ${{ env.WORKDIR }}/build
+          rm -rf ${{ env.WORKDIR }}/dist
 
       - name: Analysing the code with our lint
         working-directory: ${{ inputs.working-directory }}
         run: |
           make lint_package
+
 
       - name: Install unit+integration test dependencies
         working-directory: ${{ inputs.working-directory }}
@@ -95,6 +108,18 @@ jobs:
           path: |
             ${{ env.WORKDIR }}/.mypy_cache_test
           key: mypy-test-${{ runner.os }}-${{ runner.arch }}-py${{ matrix.python-version }}-${{ inputs.working-directory }}-${{ hashFiles(format('{0}/poetry.lock', inputs.working-directory)) }}
+
+      - name: Clear Poetry Cache
+        run: |
+          poetry cache clear pypi --all
+  
+      - name: Clean up temporary files
+        run: |
+          rm -rf ${{ env.WORKDIR }}/.mypy_cache
+          rm -rf ${{ env.WORKDIR }}/.mypy_cache_test
+          poetry cache clear pypi --all
+          rm -rf ${{ env.WORKDIR }}/build
+          rm -rf ${{ env.WORKDIR }}/dist
 
       - name: Analysing the code with our lint
         working-directory: ${{ inputs.working-directory }}

@@ -79,11 +79,17 @@ jobs:
     env:
       JOBS_JSON: ${{ toJSON(needs) }}
       RESULTS_JSON: ${{ toJSON(needs.*.result) }}
-      EXIT_CODE: ${{!contains(needs.*.result, 'failure') && !contains(needs.*.result, 'cancelled') && '0' || '1'}}
+      FAILURE_DETECTED: ${{ contains(needs.*.result, 'failure') }}
+      CANCELLED_DETECTED: ${{ contains(needs.*.result, 'cancelled') }}
     steps:
       - name: "CI Success"
         run: |
           echo $JOBS_JSON
           echo $RESULTS_JSON
-          echo "Exiting with $EXIT_CODE"
-          exit $EXIT_CODE
+          if [[ "$FAILURE_DETECTED" == "true" || "$CANCELLED_DETECTED" == "true" ]]; then
+            echo "Exiting with 1"
+            exit 1
+          else
+            echo "Exiting with 0"
+            exit 0
+          fi

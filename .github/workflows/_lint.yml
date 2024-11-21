@@ -34,13 +34,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Check disk space
+        run: df -h
+
       - name: Set up Python ${{ matrix.python-version }} + Poetry ${{ env.POETRY_VERSION }}
         uses: "./.github/actions/poetry_setup"
         with:
           python-version: ${{ matrix.python-version }}
           poetry-version: ${{ env.POETRY_VERSION }}
           working-directory: ${{ inputs.working-directory }}
-          cache-key: lint-with-extras
+          cache-key: lint-with-
+            
+      - name: Check disk space
+        run: df -h
 
       - name: Check Poetry File
         shell: bash
@@ -67,6 +73,9 @@ jobs:
         run: |
           poetry install --with lint,typing
 
+      - name: Check disk space
+        run: df -h
+
       - name: Get .mypy_cache to speed up mypy
         uses: actions/cache@v4
         env:
@@ -75,18 +84,7 @@ jobs:
           path: |
             ${{ env.WORKDIR }}/.mypy_cache
           key: mypy-lint-${{ runner.os }}-${{ runner.arch }}-py${{ matrix.python-version }}-${{ inputs.working-directory }}-${{ hashFiles(format('{0}/poetry.lock', inputs.working-directory)) }}
-
-      - name: Clear Poetry Cache
-        run: |
-          poetry cache clear pypi --all
-
-      - name: Clean up temporary files
-        run: |
-          rm -rf ${{ env.WORKDIR }}/.mypy_cache
-          rm -rf ${{ env.WORKDIR }}/.mypy_cache_test
-          poetry cache clear pypi --all
-          rm -rf ${{ env.WORKDIR }}/build
-          rm -rf ${{ env.WORKDIR }}/dist
+          restore-keys: mypy-lint-${{ runner.os }}-${{ runner.arch }}-py${{ matrix.python-version }}-
 
       - name: Analysing the code with our lint
         working-directory: ${{ inputs.working-directory }}
@@ -107,18 +105,13 @@ jobs:
           path: |
             ${{ env.WORKDIR }}/.mypy_cache_test
           key: mypy-test-${{ runner.os }}-${{ runner.arch }}-py${{ matrix.python-version }}-${{ inputs.working-directory }}-${{ hashFiles(format('{0}/poetry.lock', inputs.working-directory)) }}
-
-      - name: Clear Poetry Cache
-        run: |
-          poetry cache clear pypi --all
   
       - name: Clean up temporary files
         run: |
           rm -rf ${{ env.WORKDIR }}/.mypy_cache
           rm -rf ${{ env.WORKDIR }}/.mypy_cache_test
+          rm -rf ${{ env.WORKDIR }}/.ruff_cache
           poetry cache clear pypi --all
-          rm -rf ${{ env.WORKDIR }}/build
-          rm -rf ${{ env.WORKDIR }}/dist
 
       - name: Analysing the code with our lint
         working-directory: ${{ inputs.working-directory }}

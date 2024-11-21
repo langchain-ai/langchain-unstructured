@@ -78,7 +78,6 @@ jobs:
           path: |
             ${{ env.WORKDIR }}/.mypy_cache
           key: mypy-lint-${{ runner.os }}-${{ runner.arch }}-py${{ matrix.python-version }}-${{ inputs.working-directory }}-${{ hashFiles(format('{0}/poetry.lock', inputs.working-directory)) }}
-          restore-keys: mypy-lint-${{ runner.os }}-${{ runner.arch }}-py${{ matrix.python-version }}-
 
       - name: Check Available Disk Space
         run: df -h

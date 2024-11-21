@@ -20,6 +20,7 @@ env:
   POETRY_VERSION: "1.8.3"
 
 jobs:
+  
   build:
     runs-on: ubuntu-latest
     steps:
@@ -35,6 +36,7 @@ jobs:
     outputs:
       dirs-to-lint: ${{ steps.set-matrix.outputs.dirs-to-lint }}
       dirs-to-test: ${{ steps.set-matrix.outputs.dirs-to-test }}
+
   lint:
     name: cd ${{ matrix.working-directory }}
     needs: [ build ]

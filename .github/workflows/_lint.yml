@@ -43,7 +43,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
           poetry-version: ${{ env.POETRY_VERSION }}
           working-directory: ${{ inputs.working-directory }}
-          cache-key: lint-with-
+          cache-key: lint-with-extras
             
       - name: Check disk space
         run: df -h

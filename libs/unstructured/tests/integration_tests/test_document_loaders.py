@@ -8,8 +8,8 @@ from langchain_core.documents import Document
 from langchain_unstructured import UnstructuredLoader
 
 EXAMPLE_DOCS_DIRECTORY = str(
-    Path(__file__).parent.parent.parent.parent.parent
-    / "community/tests/integration_tests/examples/"
+    Path(__file__).parent.parent.parent
+    / "example_docs/"
 )
 UNSTRUCTURED_API_KEY = os.getenv("UNSTRUCTURED_API_KEY")
 

@@ -11,8 +11,8 @@ from typing import IO, Any, Callable, Iterator, Optional, cast
 from langchain_core.document_loaders.base import BaseLoader
 from langchain_core.documents import Document
 from typing_extensions import TypeAlias
-from unstructured_client import UnstructuredClient  # type: ignore
-from unstructured_client.models import operations, shared  # type: ignore
+from unstructured_client import UnstructuredClient
+from unstructured_client.models import operations, shared
 
 Element: TypeAlias = Any
 
@@ -255,7 +255,7 @@ class _SingleDocumentLoader(BaseLoader):
         """Retrieve a list of element dicts from the API using the SDK client."""
         client = self.client
         req = self._sdk_partition_request
-        response = client.general.partition(req)  # type: ignore
+        response = client.general.partition(request=req)
         if response.status_code == 200:
             return json.loads(response.raw_response.text)
         raise ValueError(

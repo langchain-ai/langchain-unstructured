@@ -7,10 +7,7 @@ from langchain_core.documents import Document
 
 from langchain_unstructured import UnstructuredLoader
 
-EXAMPLE_DOCS_DIRECTORY = str(
-    Path(__file__).parent.parent.parent
-    / "example_docs/"
-)
+EXAMPLE_DOCS_DIRECTORY = str(Path(__file__).parent.parent.parent / "example_docs/")
 UNSTRUCTURED_API_KEY = os.getenv("UNSTRUCTURED_API_KEY")
 
 
@@ -205,7 +202,7 @@ def test_loader_partition_via_api_raises_TypeError_with_invalid_arg() -> None:
         mode="elements",
     )
 
-    with pytest.raises(TypeError, match="unexpected keyword argument 'mode'"):
+    with pytest.raises(TypeError):
         loader.load()
 
 

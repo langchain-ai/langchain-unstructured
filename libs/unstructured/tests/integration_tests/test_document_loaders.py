@@ -193,17 +193,16 @@ def test_loader_partitions_multiple_via_api() -> None:
     assert docs[-1].metadata.get("filename") == "fake-email-attachment.eml"
 
 
-def test_loader_partition_via_api_raises_TypeError_with_invalid_arg() -> None:
-    file_path = os.path.join(EXAMPLE_DOCS_DIRECTORY, "layout-parser-paper.pdf")
+def test_loader_partition_via_api_ignores_invalid_arg() -> None:
+    file_path = os.path.join(EXAMPLE_DOCS_DIRECTORY, "fake-email-attachment.eml")
     loader = UnstructuredLoader(
         file_path=file_path,
         api_key=UNSTRUCTURED_API_KEY,
         partition_via_api=True,
-        mode="elements",
+        mode="elements",  # mode is no longer a valid argument and is ignored
     )
 
-    with pytest.raises(TypeError):
-        loader.load()
+    loader.load()
 
 
 def test_loader_partitions_via_api_hi_res() -> None:
@@ -217,7 +216,7 @@ def test_loader_partitions_via_api_hi_res() -> None:
 
     docs = loader.load()
 
-    categories = set(doc.metadata.get("category") for doc in docs)
+    categories: set[str] = set(doc.metadata.get("category") for doc in docs)
     assert "Table" in categories
     assert "Image" in categories
 

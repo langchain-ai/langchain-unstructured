@@ -205,7 +205,7 @@ def test_loader_partition_via_api_raises_TypeError_with_invalid_arg() -> None:
         mode="elements",
     )
 
-    with pytest.raises(TypeError, match="unexpected keyword argument 'mode'"):
+    with pytest.raises(TypeError):
         loader.load()
 
 

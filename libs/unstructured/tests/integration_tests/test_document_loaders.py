@@ -5,10 +5,37 @@ from typing import Callable, List
 import pytest
 from langchain_core.documents import Document
 
-from langchain_unstructured import UnstructuredLoader
+from langchain_unstructured import UnstructuredLoader, UnstructuredPDFLoader
 
-EXAMPLE_DOCS_DIRECTORY = str(Path(__file__).parent.parent.parent / "example_docs/")
+EXAMPLE_DOCS_DIRECTORY = Path(__file__).parent.parent.parent / "example_docs/"
 UNSTRUCTURED_API_KEY = os.getenv("UNSTRUCTURED_API_KEY")
+
+
+def test_unstructured_pdf_loader_elements_mode() -> None:
+    """Test unstructured loader with various modes."""
+    file_path = EXAMPLE_DOCS_DIRECTORY / "hello.pdf"
+    loader = UnstructuredPDFLoader(file_path, mode="elements")
+    docs = loader.load()
+
+    assert len(docs) == 2
+
+
+def test_unstructured_pdf_loader_page_mode() -> None:
+    """Test unstructured loader with various modes."""
+    file_path = EXAMPLE_DOCS_DIRECTORY / "layout-parser-paper.pdf"
+    loader = UnstructuredPDFLoader(file_path, mode="page")
+    docs = loader.load()
+
+    assert len(docs) == 16
+
+
+def test_unstructured_pdf_loader_default_mode() -> None:
+    """Test unstructured loader."""
+    file_path = EXAMPLE_DOCS_DIRECTORY / "hello.pdf"
+    loader = UnstructuredPDFLoader(file_path)
+    docs = loader.load()
+
+    assert len(docs) == 1
 
 
 def _check_docs_content(docs: List[Document]) -> None:
@@ -34,10 +61,11 @@ def _check_docs_content(docs: List[Document]) -> None:
         else:
             assert doc.metadata.get("category") == "PageBreak"
 
-    page_numbers = []
-    for doc in docs:
-        if page_number := doc.metadata.get("page_number"):
-            page_numbers.append(page_number)
+    page_numbers = [
+        doc.metadata.get("page_number")
+        for doc in docs
+        if doc.metadata.get("page_number")
+    ]
 
     assert set(page_numbers) == set(range(1, 17))
     assert len(docs) >= 32  # (16 pages * (>=1 element per page) + 16 page breaks)
@@ -51,7 +79,7 @@ def _check_docs_content(docs: List[Document]) -> None:
         "Based Document Image Analysis"
     ) in page_1_content
 
-    categories = set(doc.metadata.get("category") for doc in docs)
+    categories = {doc.metadata.get("category") for doc in docs}
     assert "NarrativeText" in categories
     assert "Title" in categories
 
@@ -61,7 +89,7 @@ def _check_docs_content(docs: List[Document]) -> None:
 
 @pytest.mark.local
 def test_loader_partitions_locally() -> None:
-    file_path = os.path.join(EXAMPLE_DOCS_DIRECTORY, "layout-parser-paper.pdf")
+    file_path = EXAMPLE_DOCS_DIRECTORY / "layout-parser-paper.pdf"
 
     docs = UnstructuredLoader(
         file_path=file_path,
@@ -75,7 +103,7 @@ def test_loader_partitions_locally() -> None:
 
 @pytest.mark.local
 async def test_loader_partitions_locally_async_lazy() -> None:
-    file_path = os.path.join(EXAMPLE_DOCS_DIRECTORY, "layout-parser-paper.pdf")
+    file_path = EXAMPLE_DOCS_DIRECTORY / "layout-parser-paper.pdf"
 
     loader = UnstructuredLoader(
         file_path=file_path,
@@ -83,16 +111,14 @@ async def test_loader_partitions_locally_async_lazy() -> None:
         strategy="fast",
         include_page_breaks=True,
     )
-    docs = []
-    async for doc in loader.alazy_load():
-        docs.append(doc)
+    docs = [doc async for doc in loader.alazy_load()]
 
     _check_docs_content(docs)
 
 
 @pytest.mark.local
 def test_loader_partition_ignores_invalid_arg() -> None:
-    file_path = os.path.join(EXAMPLE_DOCS_DIRECTORY, "layout-parser-paper.pdf")
+    file_path = EXAMPLE_DOCS_DIRECTORY / "layout-parser-paper.pdf"
 
     docs = UnstructuredLoader(
         file_path=file_path,
@@ -112,7 +138,7 @@ def test_loader_partition_ignores_invalid_arg() -> None:
 def test_loader_partitions_locally_and_applies_post_processors(
     get_post_processor: Callable[[str], str],
 ) -> None:
-    file_path = os.path.join(EXAMPLE_DOCS_DIRECTORY, "layout-parser-paper.pdf")
+    file_path = EXAMPLE_DOCS_DIRECTORY / "layout-parser-paper.pdf"
     loader = UnstructuredLoader(
         file_path=file_path,
         post_processors=[get_post_processor],
@@ -139,8 +165,11 @@ def test_url_loader() -> None:
 # -- API partition --
 
 
+@pytest.mark.skipif(
+    not os.environ.get("UNSTRUCTURED_API_KEY"), reason="Unstructured API key not found"
+)
 def test_loader_partitions_via_api() -> None:
-    file_path = os.path.join(EXAMPLE_DOCS_DIRECTORY, "layout-parser-paper.pdf")
+    file_path = EXAMPLE_DOCS_DIRECTORY / "layout-parser-paper.pdf"
     loader = UnstructuredLoader(
         file_path=file_path,
         partition_via_api=True,
@@ -155,8 +184,11 @@ def test_loader_partitions_via_api() -> None:
     _check_docs_content(docs)
 
 
+@pytest.mark.skipif(
+    not os.environ.get("UNSTRUCTURED_API_KEY"), reason="Unstructured API key not found"
+)
 async def test_loader_partitions_via_api_async_lazy() -> None:
-    file_path = os.path.join(EXAMPLE_DOCS_DIRECTORY, "layout-parser-paper.pdf")
+    file_path = EXAMPLE_DOCS_DIRECTORY / "layout-parser-paper.pdf"
     loader = UnstructuredLoader(
         file_path=file_path,
         partition_via_api=True,
@@ -166,17 +198,18 @@ async def test_loader_partitions_via_api_async_lazy() -> None:
         coordinates=True,
     )
 
-    docs = []
-    async for doc in loader.alazy_load():
-        docs.append(doc)
+    docs = [doc async for doc in loader.alazy_load()]
 
     _check_docs_content(docs)
 
 
+@pytest.mark.skipif(
+    not os.environ.get("UNSTRUCTURED_API_KEY"), reason="Unstructured API key not found"
+)
 def test_loader_partitions_multiple_via_api() -> None:
     file_paths = [
-        os.path.join(EXAMPLE_DOCS_DIRECTORY, "layout-parser-paper.pdf"),
-        os.path.join(EXAMPLE_DOCS_DIRECTORY, "fake-email-attachment.eml"),
+        EXAMPLE_DOCS_DIRECTORY / "layout-parser-paper.pdf",
+        EXAMPLE_DOCS_DIRECTORY / "fake-email-attachment.eml",
     ]
     loader = UnstructuredLoader(
         file_path=file_paths,
@@ -193,20 +226,31 @@ def test_loader_partitions_multiple_via_api() -> None:
     assert docs[-1].metadata.get("filename") == "fake-email-attachment.eml"
 
 
-def test_loader_partition_via_api_ignores_invalid_arg() -> None:
-    file_path = os.path.join(EXAMPLE_DOCS_DIRECTORY, "fake-email-attachment.eml")
-    loader = UnstructuredLoader(
+@pytest.mark.skipif(
+    not os.environ.get("UNSTRUCTURED_API_KEY"), reason="Unstructured API key not found"
+)
+def test_loader_pdf_partitions_multiple_via_api() -> None:
+    file_path = EXAMPLE_DOCS_DIRECTORY / "layout-parser-paper.pdf"
+    loader = UnstructuredPDFLoader(
         file_path=file_path,
         api_key=UNSTRUCTURED_API_KEY,
         partition_via_api=True,
-        mode="elements",  # mode is no longer a valid argument and is ignored
+        mode="elements",
+        # Unstructured kwargs
+        strategy="fast",
     )
 
-    loader.load()
+    docs = loader.load()
+
+    assert len(docs) > 1
+    assert docs[0].metadata.get("filename") == "layout-parser-paper.pdf"
 
 
+@pytest.mark.skipif(
+    not os.environ.get("UNSTRUCTURED_API_KEY"), reason="Unstructured API key not found"
+)
 def test_loader_partitions_via_api_hi_res() -> None:
-    file_path = os.path.join(EXAMPLE_DOCS_DIRECTORY, "layout-parser-paper.pdf")
+    file_path = EXAMPLE_DOCS_DIRECTORY / "layout-parser-paper.pdf"
     loader = UnstructuredLoader(
         file_path=file_path,
         partition_via_api=True,
@@ -216,7 +260,7 @@ def test_loader_partitions_via_api_hi_res() -> None:
 
     docs = loader.load()
 
-    categories: set[str] = set(doc.metadata.get("category") for doc in docs)
+    categories = {doc.metadata.get("category") for doc in docs}
     assert "Table" in categories
     assert "Image" in categories
 

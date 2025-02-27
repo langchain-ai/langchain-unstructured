@@ -1,27 +1,45 @@
-[tool.poetry]
+[project]
 name = "langchain-unstructured"
-version = "0.1.6"
+requires-python = ">=3.9,<4.0"
+version = "0.1.7"
 description = "An integration package connecting Unstructured and LangChain"
 authors = []
 readme = "README.md"
-repository = "https://github.com/langchain-ai/langchain-unstructured"
 license = "MIT"
+dependencies = [
+    "langchain-core>=0.3.40",
+    "langchain-community>=0.3.18",
+    "markdownify>=1.0",
+]
 
-[tool.poetry.urls]
-"Source Code" = "https://github.com/langchain-ai/langchain-unstructured/tree/main/libs/unstructured"
+[project.urls]
+homepage = "https://github.com/langchain-ai/langchain-unstructured/"
+repository = "https://github.com/langchain-ai/langchain-unstructured/"
+documentation = "https://github.com/langchain-ai/langchain-unstructured/"
+"Bug Tracker" = "https://github.com/langchain-ai/langchain-unstructured/issues"
+"Source Code" = "https://github.com/langchain-ai/langchain-unstructured/"
 "Release Notes" = "https://github.com/langchain-ai/langchain-unstructured/releases"
 
-[tool.poetry.dependencies]
-python = ">=3.9,<4.0"
-langchain-core = "^0.3.6"
-onnxruntime = ">=1.17.0,<=1.19.2"
-unstructured-client = { version = ">=0.27.0,<1" }
-unstructured = { version = "^0.15.7", optional = true, python = "<3.13", extras = [
-  "all-docs",
-] }
-
-[tool.poetry.extras]
-local = ["unstructured"]
+[project.optional-dependencies]
+all_docs = ["unstructured[all_docs] (>=0.16.23)"]
+csv = ["unstructured[csv] (>=0.16.23)"]
+doc = ["unstructured[doc] (>=0.16.23)"]
+docx = ["unstructured[docx] (>=0.16.23)"]
+epub = ["unstructured[epub] (>=0.16.23)"]
+image = ["unstructured[image] (>=0.16.23)"]
+md = ["unstructured[md] (>=0.16.23)"]
+odt = ["unstructured[odt] (>=0.16.23)"]
+org = ["unstructured[org] (>=0.16.23)"]
+pdf = ["unstructured[pdf] (>=0.16.23)"]
+ppt = ["unstructured[ppt] (>=0.16.23)"]
+pptx = ["unstructured[pptx] (>=0.16.23)"]
+rtf = ["unstructured[rtf] (>=0.16.23)"]
+tsv = ["unstructured[tsv] (>=0.16.23)"]
+xlsx = ["unstructured[xlsx] (>=0.16.23)"]
+huggingface = ["unstructured[huggingface] (>=0.16.23)"]
+local-inference = ["unstructured[local-inference] (>=0.16.23)"]
+paddleocr = ["unstructured[paddleocre] (>=0.16.23)"]
+client = ["unstructured-client>=0.30.5,<1"]
 
 [tool.poetry.group.test]
 optional = true
@@ -31,8 +49,9 @@ pytest = "^7.4.3"
 pytest-asyncio = "^0.23.2"
 pytest-socket = "^0.7.0"
 # TODO: hack to fix 3.9 builds
-cffi = [{version = "<1.17.1", python="<3.10"}, {version = "*", python=">=3.10"}]
+cffi = [{ version = "<1.17.1", python = "<3.10" }, { version = "*", python = ">=3.10" }]
 langchain-core = {git = "https://github.com/langchain-ai/langchain.git", subdirectory = "libs/core"}
+langchain-community = {git = "https://github.com/langchain-ai/langchain.git", subdirectory = "libs/community"}
 
 [tool.poetry.group.codespell]
 optional = true
@@ -51,18 +70,20 @@ optional = true
 [tool.poetry.group.lint.dependencies]
 ruff = "^0.5"
 # TODO: hack to fix 3.9 builds
-cffi = [{version = "<1.17.1", python="<3.10"}, {version = "*", python=">=3.10"}]
+cffi = [{ version = "<1.17.1", python = "<3.10" }, { version = "*", python = ">=3.10" }]
 
 [tool.poetry.group.typing.dependencies]
 mypy = "^1.7.1"
-unstructured = { version = "^0.15.7", python = "<3.13", extras = ["all-docs"] }
+#unstructured = { version = "^0.16.23", extras = ["all-docs"] }
 langchain-core = {git = "https://github.com/langchain-ai/langchain.git", subdirectory = "libs/core"}
+langchain-community = {git = "https://github.com/langchain-ai/langchain.git", subdirectory = "libs/community"}
 
 [tool.poetry.group.dev]
 optional = true
 
 [tool.poetry.group.dev.dependencies]
-langchain-core = {git = "https://github.com/langchain-ai/langchain.git", subdirectory = "libs/core"}
+langchain-core = { git = "https://github.com/langchain-ai/langchain.git", subdirectory = "libs/core" }
+langchain-community = { git = "https://github.com/langchain-ai/langchain.git", subdirectory = "libs/community" }
 
 [tool.ruff.lint]
 select = [
@@ -79,7 +100,7 @@ disallow_untyped_defs = "True"
 omit = ["tests/*"]
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = ["poetry-core>=2.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
@@ -96,7 +117,8 @@ addopts = "--strict-markers --strict-config --durations=5"
 # Registering custom markers.
 # https://docs.pytest.org/en/7.1.x/example/markers.html#registering-markers
 markers = [
-  "compile: mark placeholder test used to compile integration tests without running them",
-  "local: mark tests as requiring a local install, which isn't compatible with CI currently",
+    "compile: mark placeholder test used to compile integration tests without running them",
+    "local: mark tests as requiring a local install, which isn't compatible with CI currently",
 ]
 asyncio_mode = "auto"
+

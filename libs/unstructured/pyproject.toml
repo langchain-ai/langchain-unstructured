@@ -48,6 +48,7 @@ optional = true
 pytest = "^7.4.3"
 pytest-asyncio = "^0.23.2"
 pytest-socket = "^0.7.0"
+requests-mock = "<2.0.0,>=1.11.0"
 # TODO: hack to fix 3.9 builds
 cffi = [{ version = "<1.17.1", python = "<3.10" }, { version = "*", python = ">=3.10" }]
 langchain-core = {git = "https://github.com/langchain-ai/langchain.git", subdirectory = "libs/core"}

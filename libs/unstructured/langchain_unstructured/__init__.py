@@ -1,9 +1,11 @@
 from importlib import metadata
 
-from .document_loaders import (
-    UnstructuredLoader,
+from .document_loaders.pdf import (
     UnstructuredPDFLoader,
     UnstructuredPDFParser,
+)
+from .document_loaders.main import (
+    UnstructuredLoader,
 )
 
 """ Documentation du module unstructured patch"""

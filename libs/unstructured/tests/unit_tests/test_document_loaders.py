@@ -8,6 +8,8 @@ from unstructured.documents.elements import Text
 
 from langchain_unstructured.document_loaders import (
     UnstructuredLoader,
+)
+from langchain_unstructured.document_loaders.unstructured import (
     _SingleDocumentLoader,  # type: ignore
 )
 

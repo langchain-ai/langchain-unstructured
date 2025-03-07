@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-from langchain_unstructured.document_loaders import UnstructuredOrgModeLoader
+from langchain_unstructured import UnstructuredOrgModeLoader
 
 EXAMPLE_DIRECTORY = file_path = Path(__file__).parent.parent / "examples"
 

@@ -1,27 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<factbook>
-  <country>
-    <name>United States</name>
-    <capital>Washington, DC</capital>
-    <leader>Joe Biden</leader>
-    <sport>Baseball</sport>
-  </country>
-  <country>
-    <name>Canada</name>
-    <capital>Ottawa</capital>
-    <leader>Justin Trudeau</leader>
-    <sport>Hockey</sport>
-  </country>
-  <country>
-    <name>France</name>
-    <capital>Paris</capital>
-    <leader>Emmanuel Macron</leader>
-    <sport>Soccer</sport>
-  </country>
-  <country>
-    <name>Trinidad &amp; Tobado</name>
-    <capital>Port of Spain</capital>
-    <leader>Keith Rowley</leader>
-    <sport>Track &amp; Field</sport>
-  </country>
-</factbook>
+version https://git-lfs.github.com/spec/v1
+oid sha256:16b7986cb5e9bb36197e23154baaca2ae4b427ddd810bbf73e8974640af2e86b
+size 669

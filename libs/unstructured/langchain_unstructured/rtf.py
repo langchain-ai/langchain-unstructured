@@ -1,4 +1,6 @@
 """Loads rich text files."""
+from pathlib import PurePath
+
 from langchain_unstructured.parsers.rtf import UnstructuredRTFParser
 
 """Loads RST files."""
@@ -6,7 +8,7 @@ from langchain_unstructured.parsers.rtf import UnstructuredRTFParser
 """Loads Microsoft Excel files."""
 
 from typing import Any, Iterator, Optional, Callable, \
-    Literal, TYPE_CHECKING
+    Literal, TYPE_CHECKING, Union
 
 from langchain_community.document_loaders.blob_loaders import Blob
 from langchain_community.document_loaders.unstructured import (
@@ -48,7 +50,7 @@ class UnstructuredRTFLoader(_UnstructuredBaseLoader):
 
     def __init__(
             self,
-            file_path: str,
+            file_path: Union[str, PurePath],
             *,
             partition_via_api: bool = False,
             post_processors: Optional[list[Callable[[str], str]]] = None,

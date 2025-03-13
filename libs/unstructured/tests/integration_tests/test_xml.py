@@ -3,7 +3,7 @@ from pathlib import Path
 
 from langchain_unstructured import UnstructuredXMLLoader
 
-EXAMPLE_DIRECTORY = file_path = Path(__file__).parent.parent / "examples"
+EXAMPLE_DIRECTORY = Path(__file__).parent.parent / "examples"
 
 
 def test_unstructured_xml_loader() -> None:

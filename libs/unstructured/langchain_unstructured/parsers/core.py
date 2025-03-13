@@ -159,7 +159,7 @@ class _UnstructuredDocumentParseur(BaseBlobParser):
                     {"category": element.get("category") or element.get("type")}
                 )
                 metadata.update({"element_id": element.get("element_id")})
-                yield Document(page_content=str(element), metadata=metadata)
+                yield Document(page_content=element["text"], metadata=metadata)
         elif self.mode == "paged":
             logger.warning(
                 "`mode='paged'` is deprecated in favor of the 'by_page' chunking"
@@ -171,7 +171,7 @@ class _UnstructuredDocumentParseur(BaseBlobParser):
 
             for element in elements:
                 metadata = deepcopy(metadata)
-                metadata.update(element.get("metadata"))  # type: ignore
+                metadata.update(element.get("metadata",{}))  # type: ignore
                 page_number = metadata.get("page_number", 1)
 
                 # Check if this page_number already exists in text_dict
@@ -189,6 +189,8 @@ class _UnstructuredDocumentParseur(BaseBlobParser):
                 yield Document(page_content=text_dict[key], metadata=meta_dict[key])
         elif self.mode == "single":
             metadata = deepcopy(metadata)
+            for element in elements:
+                metadata.update(**element.get("metadata",{}))
             text = "\n\n".join([str(el) for el in elements])
             yield Document(page_content=text, metadata=metadata)
         else:

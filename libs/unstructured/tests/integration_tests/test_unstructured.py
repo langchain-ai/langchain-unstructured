@@ -2,6 +2,8 @@ import os
 from contextlib import ExitStack
 from pathlib import Path
 
+# FIXME
+# FIXME: ajouter les tests avec plusieurs fichiers en input
 from langchain_community.document_loaders import (
     UnstructuredAPIFileIOLoader,
     UnstructuredAPIFileLoader,
@@ -10,14 +12,14 @@ from langchain_community.document_loaders import (
 
 import pytest
 
-EXAMPLE_DOCS_DIRECTORY = str(Path(__file__).parent.parent / "examples/")
+EXAMPLE_DOCS_DIRECTORY = Path(__file__).parent.parent / "examples/"
 
 
 def test_unstructured_loader_with_post_processor() -> None:
     def add_the_end(text: str) -> str:
         return text + "THE END!"
 
-    file_path = os.path.join(EXAMPLE_DOCS_DIRECTORY, "layout-parser-paper.pdf")
+    file_path = EXAMPLE_DOCS_DIRECTORY / "layout-parser-paper.pdf"
     loader = UnstructuredFileLoader(
         file_path=file_path,
         post_processors=[add_the_end],
@@ -33,12 +35,12 @@ def test_unstructured_loader_with_post_processor() -> None:
 def test_unstructured_file_loader_multiple_files() -> None:
     """Test unstructured loader."""
     file_paths = [
-        os.path.join(EXAMPLE_DOCS_DIRECTORY, "layout-parser-paper.pdf"),
-        os.path.join(EXAMPLE_DOCS_DIRECTORY, "whatsapp_chat.txt"),
+        EXAMPLE_DOCS_DIRECTORY / "layout-parser-paper.pdf",
+        EXAMPLE_DOCS_DIRECTORY / "whatsapp_chat.txt",
     ]
 
     loader = UnstructuredFileLoader(
-        file_path=file_paths,
+        file_path=file_paths,  # FIXME
         strategy="fast",
         mode="elements",
     )
@@ -89,7 +91,6 @@ def test_unstructured_api_file_io_loader() -> None:
             api_key="FAKE_API_KEY",
             strategy="fast",
             mode="elements",
-            file_filename=file_path,
             metadata_filename=file_path,
         )
         docs = loader.load()
@@ -112,8 +113,7 @@ def test_unstructured_api_file_loader_io_multiple_files() -> None:
             api_key="FAKE_API_KEY",
             strategy="fast",
             mode="elements",
-            file_filenames=file_paths,
-            metadata_filename=file_paths[0],
+            metadata_filenaùme=file_paths[0],
         )
 
         docs = loader.load()

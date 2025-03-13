@@ -1,7 +1,7 @@
 """Loader that uses unstructured to load HTML files."""
 
 import logging
-from typing import Any, List
+from typing import Any, List, Iterator
 
 from langchain_core.documents import Document
 
@@ -105,12 +105,11 @@ class UnstructuredURLLoader(BaseLoader):
 
         return unstructured_version >= (0, 5, 12)
 
-    def load(self) -> List[Document]:
+    def lazy_load(self) -> Iterator[Document]:
         """Load file."""
         from unstructured.partition.auto import partition
         from unstructured.partition.html import partition_html
 
-        docs: List[Document] = list()
         if self.show_progress_bar:
             try:
                 from tqdm import tqdm
@@ -151,11 +150,9 @@ class UnstructuredURLLoader(BaseLoader):
             if self.mode == "single":
                 text = "\n\n".join([str(el) for el in elements])
                 metadata = {"source": url}
-                docs.append(Document(page_content=text, metadata=metadata))
+                yield Document(page_content=text, metadata=metadata)
             elif self.mode == "elements":
                 for element in elements:
                     metadata = element.metadata.to_dict()
                     metadata["category"] = element.category
-                    docs.append(Document(page_content=str(element), metadata=metadata))
-
-        return docs
+                    yield Document(page_content=str(element), metadata=metadata)

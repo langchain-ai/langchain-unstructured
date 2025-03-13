@@ -32,21 +32,17 @@ class MsWordParser(BaseBlobParser):
         try:
             from unstructured.partition.doc import partition_doc
             from unstructured.partition.docx import partition_docx
+            from unstructured.file_utils.filetype import FileType, detect_filetype
         except ImportError as e:
             raise ImportError(
                 "Could not import unstructured, please install with `pip install "
                 "unstructured`."
             ) from e
 
-        mime_type_parser = {
-            "application/msword": partition_doc,
-            "application/vnd.openxmlformats-officedocument.wordprocessingml.document": (
-                partition_docx
-            ),
-        }
-        if blob.mimetype not in (  # type: ignore[attr-defined]
-            "application/msword",
-            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        if blob.mimetype not in (
+                "application/msword",
+                "application/vnd.openxmlformats-officedocument"
+                ".wordprocessingml.document"
         ):
             raise ValueError("This blob type is not supported for this parser.")
         with blob.as_bytes_io() as word_document:  # type: ignore[attr-defined]
@@ -90,19 +86,27 @@ class UnstructuredWordDocumentParser(_UnstructuredDocumentParseur):
     def _get_elements_via_local(self, blob:Blob) -> list:
         try:
             from unstructured.partition.docx import partition_docx  # type: ignore
+            from unstructured.partition.doc import partition_doc  # type: ignore
         except ImportError:
             raise ImportError(
                 "unstructured package not found, please install it with "
                 "`pip install 'langchain_unstructured[docx]'`"
             )
 
+        mime_type_parser = {
+            "application/msword": partition_doc,
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document": (
+                partition_docx
+            ),
+        }
         if blob.data is None and blob.path:
-            return partition_docx(
-                filename=blob.path,
-                **self.unstructured_kwargs
-            )
+            filename = str(blob.path)
+            file = None
         else:
-            return partition_docx(
-                file=blob.as_bytes_io(),
-                **self.unstructured_kwargs
-            )
+            filename = None
+            file = blob.as_bytes_io()
+        return mime_type_parser[blob.mimetype](
+            filename=filename,
+            file=file,
+            **self.unstructured_kwargs
+        )

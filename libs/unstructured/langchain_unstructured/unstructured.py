@@ -1,6 +1,6 @@
 """Loader that uses unstructured to load files."""
 from abc import ABC
-from pathlib import Path
+from pathlib import Path, PurePath
 from typing import Any, Iterator, Optional, Callable, \
     Literal, TYPE_CHECKING, Union, List, IO
 
@@ -24,7 +24,7 @@ class _UnstructuredBaseLoader(BaseLoader, ABC):
     def __init__(
             self,
             parser: BaseBlobParser,
-            file_path: Union[str, List[str], Path, List[Path]],
+            file_path: Union[str, List[str], PurePath, List[PurePath]],  # FIXME
             file: Optional[IO[bytes] | list[IO[bytes]]] = None,
 
     ):
@@ -34,7 +34,7 @@ class _UnstructuredBaseLoader(BaseLoader, ABC):
         self.file_path = file_path
         self.file = file
 
-    def lazy_load(self) -> Iterator[Document]:
+    def lazy_load(self) -> Iterator[Document]:  # FIXME: si liste de path?
         if self.file:
             blob = Blob.from_data(self.file.read())
         else:
@@ -66,7 +66,7 @@ class UnstructuredLoader(_UnstructuredBaseLoader):
 
     def __init__(
             self,
-            file_path: Optional[str | Path | list[str] | list[Path]] = None,
+            file_path: Optional[str | PurePath | list[str] | list[PurePath]] = None,  # FIXME
             *,
             file: Optional[IO[bytes] | list[IO[bytes]]] = None,
             partition_via_api: bool = False,

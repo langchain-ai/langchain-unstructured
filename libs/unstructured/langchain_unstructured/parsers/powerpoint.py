@@ -51,12 +51,13 @@ class UnstructuredPowerPointParser(_UnstructuredDocumentParseur):
             )
 
         if blob.data is None and blob.path:
-            return partition_pptx(
-                filename=blob.path,
-                **self.unstructured_kwargs
-            )
+            filename = str(blob.path)
+            file = None
         else:
-            return partition_pptx(
-                file=blob.as_bytes_io(),
-                **self.unstructured_kwargs
-            )
+            filename = None
+            file = blob.as_bytes_io()
+        return partition_pptx(
+            filename=filename,
+            file=file,
+            **self.unstructured_kwargs
+        )

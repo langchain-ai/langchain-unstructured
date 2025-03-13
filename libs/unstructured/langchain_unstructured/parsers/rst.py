@@ -47,12 +47,13 @@ class UnstructuredRSTParser(_UnstructuredDocumentParseur):
             )
 
         if blob.data is None and blob.path:
-            return partition_rst(
-                filename=blob.path,
-                **self.unstructured_kwargs
-            )
+            filename = str(blob.path)
+            file = None
         else:
-            return partition_rst(
-                file=blob.as_bytes_io(),
-                **self.unstructured_kwargs
-            )
+            filename = None
+            file = blob.as_bytes_io()
+        return partition_rst(
+            filename=filename,
+            file=file,
+            **self.unstructured_kwargs
+        )

@@ -9,7 +9,7 @@ from langchain_unstructured.parsers.core import \
     _UnstructuredDocumentParseur
 
 
-class UnstructuredODTParser(_UnstructuredDocumentParseur):
+class UnstructuredEmailParser(_UnstructuredDocumentParseur):
     """Parse `Markdown` files using `Unstructured`.
 
     Like other
@@ -35,25 +35,36 @@ class UnstructuredODTParser(_UnstructuredDocumentParseur):
             **unstructured_kwargs: Keyword arguments to pass to unstructured.
         """
         validate_unstructured_version(min_unstructured_version="0.6.8")
+        process_attachments = unstructured_kwargs.get("process_attachments")
+        attachment_partitioner = unstructured_kwargs.get("attachment_partitioner")
+
+        if process_attachments and attachment_partitioner is None:
+            from unstructured.partition.auto import partition
+
+            unstructured_kwargs["attachment_partitioner"] = partition
+
         super().__init__(**unstructured_kwargs)
 
     def _get_elements_via_local(self, blob:Blob) -> list:
         try:
-            from unstructured.partition.odt import partition_odt  # type: ignore
+            from unstructured.partition.email import partition_email  # type: ignore
+            from unstructured.partition.msg import partition_msg
+            from unstructured.file_utils.filetype import FileType, detect_filetype
         except ImportError:
             raise ImportError(
                 "unstructured package not found, please install it with "
-                "`pip install 'langchain_unstructured[odt]'`"
+                "`pip install 'langchain_unstructured'`"
             )
-
+        mime_type_parser = {
+            FileType.EML.mime_type: partition_email,
+            FileType.MSG.mime_type: partition_msg,
+        }
         if blob.data is None and blob.path:
             filename = str(blob.path)
             file = None
         else:
             filename = None
             file = blob.as_bytes_io()
-        return partition_odt(
-            filename=filename,
-            file=file,
-            **self.unstructured_kwargs
-        )
+
+        return mime_type_parser[blob.mimetype](filename=filename, file=file,
+                               **self.unstructured_kwargs)

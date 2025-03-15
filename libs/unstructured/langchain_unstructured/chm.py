@@ -1,5 +1,7 @@
-from pathlib import Path
+from pathlib import Path, PurePath
 from typing import TYPE_CHECKING, Any, Dict, List, Union
+
+from langchain_core._api.deprecation import deprecated
 
 from langchain_community.document_loaders.unstructured import UnstructuredFileLoader
 
@@ -27,7 +29,7 @@ class UnstructuredCHMLoader(UnstructuredFileLoader):
 
     def __init__(
         self,
-        file_path: Union[str, Path],
+        file_path: Union[str, PurePath],
         mode: str = "single",
         **unstructured_kwargs: Any,
     ):

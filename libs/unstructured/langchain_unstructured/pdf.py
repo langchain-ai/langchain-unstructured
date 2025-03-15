@@ -33,6 +33,7 @@ from langchain_core.documents import Document
 from typing_extensions import TypeAlias
 
 from .main import _SingleDocumentLoader
+from .parsers import UnstructuredPDFParser
 
 if TYPE_CHECKING:
     from unstructured_client import UnstructuredClient

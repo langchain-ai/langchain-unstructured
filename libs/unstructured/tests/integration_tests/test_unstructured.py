@@ -12,7 +12,7 @@ from langchain_community.document_loaders import (
 
 import pytest
 
-EXAMPLE_DOCS_DIRECTORY = Path(__file__).parent.parent / "examples/"
+EXAMPLE_DOCS_DIRECTORY = Path(__file__).parent.parent / "examples"
 
 
 def test_unstructured_loader_with_post_processor() -> None:

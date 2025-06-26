@@ -14,7 +14,6 @@ license = "MIT"
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0"
 langchain-core = "^0.3.6"
-onnxruntime = ">=1.17.0,<=1.19.2"
 unstructured-client = { version = ">=0.27.0,<1" }
 unstructured = { version = "^0.15.7", optional = true, python = "<3.13", extras = [
   "all-docs",

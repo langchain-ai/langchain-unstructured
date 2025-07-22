@@ -65,7 +65,7 @@ print(docs[0].metadata)
 
 References
 ----------
-https://docs.unstructured.io/api-reference/api-services/sdk
-https://docs.unstructured.io/api-reference/api-services/overview
-https://docs.unstructured.io/open-source/core-functionality/partitioning
-https://docs.unstructured.io/open-source/core-functionality/chunking
+- https://docs.unstructured.io/api-reference/partition/sdk-python
+- https://docs.unstructured.io/api-reference/api-services/overview
+- https://docs.unstructured.io/open-source/core-functionality/partitioning
+- https://docs.unstructured.io/open-source/core-functionality/chunking

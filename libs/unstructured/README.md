@@ -5,12 +5,13 @@ This package contains the LangChain integration with Unstructured
 ## Installation
 
 ```bash
-pip install -U langchain-unstructured
+pip install -U 'langchain-unstructured[all_docs]'
 ```
 
 And you should configure credentials by setting the following environment variables:
 
 ```bash
+pip install -U 'langchain-unstructured[client]'
 export UNSTRUCTURED_API_KEY="your-api-key"
 ```
 
@@ -20,11 +21,11 @@ Partition and load files using either the `unstructured-client` sdk and the
 Unstructured API or locally using the `unstructured` library.
 
 API:
-To partition via the Unstructured API `pip install unstructured-client` and set
-`partition_via_api=True` and define `api_key`. If you are running the unstructured API
-locally, you can change the API rule by defining `url` when you initialize the
-loader. The hosted Unstructured API requires an API key. See the links below to
-learn more about our API offerings and get an API key.
+To partition via the Unstructured API set `partition_via_api=True` and define 
+`api_key`. If you are running the unstructured API locally, you can change the API rule 
+by defining `url` when you initialize the loader. The hosted Unstructured API requires 
+an API key. See the links below to learn more about our API offerings and get an 
+API key.
 
 Local:
 By default the file loader uses the Unstructured `partition` function and will
@@ -37,8 +38,7 @@ Unstructured kwargs to the loader to configure different unstructured settings.
 
 Setup:
 ```bash
-    pip install -U langchain-unstructured
-    pip install -U unstructured-client
+    pip install -U 'langchain-unstructured[client]'
     export UNSTRUCTURED_API_KEY="your-api-key"
 ```
 

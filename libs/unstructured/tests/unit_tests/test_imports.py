@@ -1,6 +1,8 @@
 from langchain_unstructured import __all__
 
 EXPECTED_ALL = [
+    "UnstructuredPDFLoader",
+    "UnstructuredPDFParser",
     "UnstructuredLoader",
     "__version__",
 ]

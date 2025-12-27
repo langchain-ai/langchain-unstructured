@@ -25,74 +25,76 @@ class UnstructuredLoader(BaseLoader):
     """Unstructured document loader interface.
 
     Setup:
-        Install ``langchain-unstructured`` and set environment variable ``UNSTRUCTURED_API_KEY``.
+        Install `langchain-unstructured` and set environment variable `UNSTRUCTURED_API_KEY`.
 
-        .. code-block:: bash
-            pip install -U langchain-unstructured
-            export UNSTRUCTURED_API_KEY="your-api-key"
+        ```bash
+        pip install -U langchain-unstructured
+        export UNSTRUCTURED_API_KEY="your-api-key"
+        ```
 
     Instantiate:
-        .. code-block:: python
-            from langchain_unstructured import UnstructuredLoader
+        ```python
+        from langchain_unstructured import UnstructuredLoader
 
-            loader = UnstructuredLoader(
-                file_path = ["example.pdf", "fake.pdf"],
-                api_key=UNSTRUCTURED_API_KEY,
-                partition_via_api=True,
-                chunking_strategy="by_title",
-                strategy="fast",
-            )
+        loader = UnstructuredLoader(
+            file_path = ["example.pdf", "fake.pdf"],
+            api_key=UNSTRUCTURED_API_KEY,
+            partition_via_api=True,
+            chunking_strategy="by_title",
+            strategy="fast",
+        )
+        ```
 
     Lazy load:
-        .. code-block:: python
+        ```python
+        docs = []
+        docs_lazy = loader.lazy_load()
 
-            docs = []
-            docs_lazy = loader.lazy_load()
+        # async variant:
+        # docs_lazy = await loader.alazy_load()
 
-            # async variant:
-            # docs_lazy = await loader.alazy_load()
+        for doc in docs_lazy:
+            docs.append(doc)
+        print(docs[0].page_content[:100])
+        print(docs[0].metadata)
+        ```
 
-            for doc in docs_lazy:
-                docs.append(doc)
-            print(docs[0].page_content[:100])
-            print(docs[0].metadata)
-
-        .. code-block:: python
-
-            1 2 0 2
-            {'source': './example_data/layout-parser-paper.pdf', 'coordinates': {'points': ((16.34, 213.36), (16.34, 253.36), (36.34, 253.36), (36.34, 213.36)), 'system': 'PixelSpace', 'layout_width': 612, 'layout_height': 792}, 'file_directory': './example_data', 'filename': 'layout-parser-paper.pdf', 'languages': ['eng'], 'last_modified': '2024-07-25T21:28:58', 'page_number': 1, 'filetype': 'application/pdf', 'category': 'UncategorizedText', 'element_id': 'd3ce55f220dfb75891b4394a18bcb973'}
+        ```python
+        1 2 0 2
+        {'source': './example_data/layout-parser-paper.pdf', 'coordinates': {'points': ((16.34, 213.36), (16.34, 253.36), (36.34, 253.36), (36.34, 213.36)), 'system': 'PixelSpace', 'layout_width': 612, 'layout_height': 792}, 'file_directory': './example_data', 'filename': 'layout-parser-paper.pdf', 'languages': ['eng'], 'last_modified': '2024-07-25T21:28:58', 'page_number': 1, 'filetype': 'application/pdf', 'category': 'UncategorizedText', 'element_id': 'd3ce55f220dfb75891b4394a18bcb973'}
+        ```
 
 
     Async load:
-        .. code-block:: python
+        ```python
+        docs = await loader.aload()
+        print(docs[0].page_content[:100])
+        print(docs[0].metadata)
+        ```
 
-            docs = await loader.aload()
-            print(docs[0].page_content[:100])
-            print(docs[0].metadata)
-
-        .. code-block:: python
-
-            1 2 0 2
-            {'source': './example_data/layout-parser-paper.pdf', 'coordinates': {'points': ((16.34, 213.36), (16.34, 253.36), (36.34, 253.36), (36.34, 213.36)), 'system': 'PixelSpace', 'layout_width': 612, 'layout_height': 792}, 'file_directory': './example_data', 'filename': 'layout-parser-paper.pdf', 'languages': ['eng'], 'last_modified': '2024-07-25T21:28:58', 'page_number': 1, 'filetype': 'application/pdf', 'category': 'UncategorizedText', 'element_id': 'd3ce55f220dfb75891b4394a18bcb973'}
+        ```python
+        1 2 0 2
+        {'source': './example_data/layout-parser-paper.pdf', 'coordinates': {'points': ((16.34, 213.36), (16.34, 253.36), (36.34, 253.36), (36.34, 213.36)), 'system': 'PixelSpace', 'layout_width': 612, 'layout_height': 792}, 'file_directory': './example_data', 'filename': 'layout-parser-paper.pdf', 'languages': ['eng'], 'last_modified': '2024-07-25T21:28:58', 'page_number': 1, 'filetype': 'application/pdf', 'category': 'UncategorizedText', 'element_id': 'd3ce55f220dfb75891b4394a18bcb973'}
+        ```
 
 
     Load URL:
-        .. code-block:: python
+        ```python
+        loader = UnstructuredLoader(web_url="https://www.example.com/")
+        print(docs[0])
+        ```
 
-            loader = UnstructuredLoader(web_url="https://www.example.com/")
-            print(docs[0])
+        ```
+        page_content='Example Domain' metadata={'category_depth': 0, 'languages': ['eng'], 'filetype': 'text/html', 'url': 'https://www.example.com/', 'category': 'Title', 'element_id': 'fdaa78d856f9d143aeeed85bf23f58f8'}
+        ```
 
-        .. code-block:: none
+        ```python
+        print(docs[1])
+        ```
 
-            page_content='Example Domain' metadata={'category_depth': 0, 'languages': ['eng'], 'filetype': 'text/html', 'url': 'https://www.example.com/', 'category': 'Title', 'element_id': 'fdaa78d856f9d143aeeed85bf23f58f8'}
-
-        .. code-block:: python
-
-            print(docs[1])
-
-        .. code-block:: none
-
-            page_content='This domain is for use in illustrative examples in documents. You may use this domain in literature without prior coordination or asking for permission.' metadata={'languages': ['eng'], 'parent_id': 'fdaa78d856f9d143aeeed85bf23f58f8', 'filetype': 'text/html', 'url': 'https://www.example.com/', 'category': 'NarrativeText', 'element_id': '3652b8458b0688639f973fe36253c992'}
+        ```
+        page_content='This domain is for use in illustrative examples in documents. You may use this domain in literature without prior coordination or asking for permission.' metadata={'languages': ['eng'], 'parent_id': 'fdaa78d856f9d143aeeed85bf23f58f8', 'filetype': 'text/html', 'url': 'https://www.example.com/', 'category': 'NarrativeText', 'element_id': '3652b8458b0688639f973fe36253c992'}
+        ```
 
 
     References
@@ -120,6 +122,7 @@ class UnstructuredLoader(BaseLoader):
         """Initialize loader."""
         if file_path is not None and file is not None:
             raise ValueError("file_path and file cannot be defined simultaneously.")
+
         if client is not None:
             disallowed_params = [("api_key", api_key), ("url", url)]
             bad_params = [
@@ -138,7 +141,6 @@ class UnstructuredLoader(BaseLoader):
         self.client = client or UnstructuredClient(
             api_key_auth=unstructured_api_key, server_url=unstructured_url
         )
-
         self.file_path = file_path
         self.file = file
         self.partition_via_api = partition_via_api
@@ -148,12 +150,12 @@ class UnstructuredLoader(BaseLoader):
             self.unstructured_kwargs["url"] = web_url
 
     def lazy_load(self) -> Iterator[Document]:
-        """Load file(s) to the _UnstructuredBaseLoader."""
+        """Load file(s) to the `_UnstructuredBaseLoader`."""
 
         def load_file(
             f: Optional[IO[bytes]] = None, f_path: Optional[str | Path] = None
         ) -> Iterator[Document]:
-            """Load an individual file to the _UnstructuredBaseLoader."""
+            """Load an individual file to the `_UnstructuredBaseLoader`."""
             return _SingleDocumentLoader(
                 file=f,
                 file_path=f_path,
@@ -181,7 +183,7 @@ class UnstructuredLoader(BaseLoader):
 class _SingleDocumentLoader(BaseLoader):
     """Provides loader functionality for individual document/file objects.
 
-    Encapsulates partitioning individual file objects (file or file_path) either
+    Encapsulates partitioning individual file objects (`file` or `file_path`) either
     locally or via the Unstructured API.
     """
 
@@ -200,6 +202,7 @@ class _SingleDocumentLoader(BaseLoader):
         self.file = file
         self.partition_via_api = partition_via_api
         self.post_processors = post_processors
+
         # SDK parameters
         self.client = client
         self.unstructured_kwargs = kwargs
@@ -264,7 +267,7 @@ class _SingleDocumentLoader(BaseLoader):
 
     @property
     def _file_content(self) -> bytes:
-        """Get content from either file or file_path."""
+        """Get content from either `file` or `file_path`."""
         if self.file is not None:
             return self.file.read()
         elif self.file_path:
@@ -289,7 +292,7 @@ class _SingleDocumentLoader(BaseLoader):
         return [element.to_dict() for element in elements]
 
     def _get_metadata(self) -> dict[str, Any]:
-        """Get file_path metadata if available."""
+        """Get `file_path` metadata if available."""
         return {"source": self.file_path} if self.file_path else {}
 
     def _post_process_elements_json(
@@ -297,8 +300,8 @@ class _SingleDocumentLoader(BaseLoader):
     ) -> list[dict[str, Any]]:
         """Apply post processing functions to extracted unstructured elements.
 
-        Post processing functions are str -> str callables passed
-        in using the post_processors kwarg when the loader is instantiated.
+        Post processing functions are `str -> str` callables passed
+        in using the `post_processors` kwarg when the loader is instantiated.
         """
         if self.post_processors:
             for element in elements_json:

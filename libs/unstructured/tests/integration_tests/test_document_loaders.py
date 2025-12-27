@@ -216,7 +216,7 @@ def test_loader_partitions_via_api_hi_res() -> None:
 
     docs = loader.load()
 
-    categories: set[str] = set(doc.metadata.get("category") for doc in docs)
+    categories: set[str | None] = set(doc.metadata.get("category") for doc in docs)
     assert "Table" in categories
     assert "Image" in categories
 

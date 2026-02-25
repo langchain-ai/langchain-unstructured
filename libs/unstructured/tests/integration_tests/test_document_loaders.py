@@ -47,8 +47,7 @@ def _check_docs_content(docs: List[Document]) -> None:
         if doc.metadata.get("page_number") == 1:
             page_1_content += f" {doc.page_content}"
     assert (
-        "LayoutParser: A Uniﬁed Toolkit for Deep Learning "
-        "Based Document Image Analysis"
+        "LayoutParser: A Uniﬁed Toolkit for Deep Learning Based Document Image Analysis"
     ) in page_1_content
 
     categories = set(doc.metadata.get("category") for doc in docs)

@@ -15,7 +15,7 @@ license = "MIT"
 python = ">=3.10.0,<4.0.0"
 langchain-core = "^1.0.5"
 unstructured-client = { version = ">=0.27.0,<1" }
-unstructured = { version = "^0.15.7", optional = true, python = "<3.13", extras = [
+unstructured = { version = "^0.18.18", optional = true, python = "<3.13", extras = [
   "all-docs",
 ] }
 
@@ -54,7 +54,7 @@ cffi = [{version = "<1.17.1", python="<3.10"}, {version = "*", python=">=3.10"}]
 
 [tool.poetry.group.typing.dependencies]
 mypy = "^1.7.1"
-unstructured = { version = "^0.15.7", python = "<3.13", extras = ["all-docs"] }
+unstructured = { version = "^0.18.18", python = "<3.13", extras = ["all-docs"] }
 langchain-core = {git = "https://github.com/langchain-ai/langchain.git", subdirectory = "libs/core"}
 
 [tool.poetry.group.dev]

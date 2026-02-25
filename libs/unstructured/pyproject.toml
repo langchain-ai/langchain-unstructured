@@ -18,6 +18,24 @@ unstructured-client = { version = ">=0.27.0,<1" }
 unstructured = { version = "^0.18.18", optional = true, python = "<3.13", extras = [
   "all-docs",
 ] }
+# CVE-2024-56201, CVE-2024-56326, CVE-2025-27516: jinja2 <= 3.1.5 has sandbox breakout vulnerabilities.
+# Remove once upstream deps require >= 3.1.6.
+jinja2 = ">=3.1.6"
+# CVE-2024-47081: requests < 2.32.4 leaks .netrc credentials via malicious URLs.
+# Remove once upstream deps require >= 2.32.4.
+requests = ">=2.32.4"
+# CVE-2025-66034: fonttools >= 4.33.0, < 4.60.2 has arbitrary file write and XML injection vulnerabilities.
+# Remove once upstream deps require >= 4.60.2.
+fonttools = ">=4.60.2"
+# CVE-2025-68480: marshmallow >= 3.0.0rc1, < 3.26.2 has DoS in Schema.load(many).
+# Remove once upstream deps require >= 3.26.2.
+marshmallow = ">=3.26.2"
+# CVE-2025-68146, CVE-2026-22701: filelock < 3.20.3 has TOCTOU symlink vulnerabilities.
+# Remove once upstream deps require >= 3.20.3.
+filelock = ">=3.20.3"
+# CVE-2026-25528: langsmith >= 0.4.10, < 0.6.3 is vulnerable to SSRF via tracing header injection.
+# Remove once upstream deps require >= 0.6.3.
+langsmith = ">=0.6.3"
 
 [tool.poetry.extras]
 local = ["unstructured"]

@@ -14,6 +14,9 @@ on:
         type: string
         default: 'libs/unstructured'
 
+permissions:
+  contents: read
+
 env:
   PYTHON_VERSION: "3.11"
   POETRY_VERSION: "1.8.3"
@@ -72,7 +75,9 @@ jobs:
       - build
     uses:
       ./.github/workflows/_test_release.yml
-    permissions: write-all
+    permissions:
+      id-token: write
+      contents: read
     with:
       working-directory: ${{ inputs.working-directory }}
     secrets: inherit
@@ -194,6 +199,7 @@ jobs:
       # Trusted publishing has to also be configured on PyPI for each package:
       # https://docs.pypi.org/trusted-publishers/adding-a-publisher/
       id-token: write
+      contents: read
 
     defaults:
       run:

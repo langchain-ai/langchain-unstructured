@@ -48,7 +48,7 @@ optional = true
 optional = true
 
 [tool.poetry.group.lint.dependencies]
-ruff = "^0.5"
+ruff = ">=0.5,<0.16"
 # TODO: hack to fix 3.9 builds
 cffi = [{version = "<1.17.1", python="<3.10"}, {version = "*", python=">=3.10"}]
 

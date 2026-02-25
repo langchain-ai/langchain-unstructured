@@ -30,7 +30,7 @@ pytest = "^9.0.1"
 pytest-asyncio = "^1.3.0"
 pytest-socket = "^0.7.0"
 # TODO: hack to fix 3.9 builds
-cffi = [{version = "<1.17.1", python="<3.10"}, {version = "*", python=">=3.10"}]
+cffi = [{version = "<2.0.1", python="<3.10"}, {version = "*", python=">=3.10"}]
 langchain-core = {git = "https://github.com/langchain-ai/langchain.git", subdirectory = "libs/core"}
 
 [tool.poetry.group.codespell]
@@ -50,7 +50,7 @@ optional = true
 [tool.poetry.group.lint.dependencies]
 ruff = "^0.5"
 # TODO: hack to fix 3.9 builds
-cffi = [{version = "<1.17.1", python="<3.10"}, {version = "*", python=">=3.10"}]
+cffi = [{version = "<2.0.1", python="<3.10"}, {version = "*", python=">=3.10"}]
 
 [tool.poetry.group.typing.dependencies]
 mypy = "^1.7.1"

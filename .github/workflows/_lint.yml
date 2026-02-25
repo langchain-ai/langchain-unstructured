@@ -32,7 +32,7 @@ jobs:
           - "3.9"
           - "3.12"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Check disk space
         run: df -h

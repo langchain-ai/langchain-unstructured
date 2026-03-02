@@ -262,7 +262,7 @@ class _SingleDocumentLoader(BaseLoader):
         if response.status_code == 200:
             return json.loads(response.raw_response.text)
         raise ValueError(
-            f"Receive unexpected status code {response.status_code} from the API.",
+            f"Received unexpected status code {response.status_code} from the API.",
         )
 
     @property

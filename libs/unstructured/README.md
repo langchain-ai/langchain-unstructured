@@ -37,9 +37,9 @@ Unstructured kwargs to the loader to configure different unstructured settings.
 
 Setup:
 ```bash
-    pip install -U langchain-unstructured
-    pip install -U unstructured-client
-    export UNSTRUCTURED_API_KEY="your-api-key"
+pip install -U langchain-unstructured
+pip install -U unstructured-client
+export UNSTRUCTURED_API_KEY="your-api-key"
 ```
 
 Instantiate:

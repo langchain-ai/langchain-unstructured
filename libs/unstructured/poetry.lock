@@ -2722,6 +2722,7 @@ description = "Fast, correct Python JSON library supporting dataclasses, datetim
 optional = false
 python-versions = ">=3.10"
 groups = ["main", "dev", "test", "typing"]
+markers = "platform_python_implementation != \"PyPy\""
 files = [
     {file = "orjson-3.11.6-cp310-cp310-macosx_10_15_x86_64.macosx_11_0_arm64.macosx_10_15_universal2.whl", hash = "sha256:a613fc37e007143d5b6286dccb1394cd114b07832417006a02b620ddd8279e37"},
     {file = "orjson-3.11.6-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:46ebee78f709d3ba7a65384cfe285bb0763157c6d2f836e7bde2f12d33a867a2"},
@@ -3574,14 +3575,14 @@ diagrams = ["jinja2", "railroad-diagrams"]
 
 [[package]]
 name = "pypdf"
-version = "6.8.0"
+version = "6.9.0"
 description = "A pure-python PDF library capable of splitting, merging, cropping, and transforming PDF files"
 optional = false
 python-versions = ">=3.9"
 groups = ["main", "typing"]
 files = [
-    {file = "pypdf-6.8.0-py3-none-any.whl", hash = "sha256:2a025080a8dd73f48123c89c57174a5ff3806c71763ee4e49572dc90454943c7"},
-    {file = "pypdf-6.8.0.tar.gz", hash = "sha256:cb7eaeaa4133ce76f762184069a854e03f4d9a08568f0e0623f7ea810407833b"},
+    {file = "pypdf-6.9.0-py3-none-any.whl", hash = "sha256:85805ad7457ca878c4cfd1bc026c4b3dcae359b4a80f889fa7e8c5a1c1a83e51"},
+    {file = "pypdf-6.9.0.tar.gz", hash = "sha256:a59257869fc575ba2ccc10100a36be0a47cd1bc1fb00f2950abf1d219fa94c01"},
 ]
 markers = {typing = "python_version < \"3.13\""}
 

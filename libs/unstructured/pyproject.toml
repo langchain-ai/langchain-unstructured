@@ -46,7 +46,7 @@ optional = true
 [tool.poetry.group.test.dependencies]
 pytest = "^9.0.1"
 pytest-asyncio = "^1.3.0"
-pytest-socket = "^0.7.0"
+pytest-socket = ">=0.7,<0.9"
 # TODO: hack to fix 3.9 builds
 cffi = [{version = "<1.17.1", python="<3.10"}, {version = "*", python=">=3.10"}]
 langchain-core = {git = "https://github.com/langchain-ai/langchain.git", subdirectory = "libs/core"}

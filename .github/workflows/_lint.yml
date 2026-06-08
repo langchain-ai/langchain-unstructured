@@ -12,7 +12,7 @@ permissions:
   contents: read
 
 env:
-  POETRY_VERSION: "1.8.3"
+  POETRY_VERSION: "2.2.1"
   WORKDIR: ${{ inputs.working-directory == '' && '.' || inputs.working-directory }}
 
   # This env var allows us to get inline annotations when ruff has complaints.
@@ -32,7 +32,7 @@ jobs:
         # Starting new jobs is also relatively slow,
         # so linting on fewer versions makes CI faster.
         python-version:
-          - "3.9"
+          - "3.10"
           - "3.12"
     steps:
       - uses: actions/checkout@v6

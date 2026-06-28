@@ -826,6 +826,18 @@ wrapt = ">=1.10,<2"
 dev = ["PyTest", "PyTest-Cov", "bump2version (<1)", "jinja2 (>=3.0.3,<3.1.0)", "setuptools ; python_version >= \"3.12\"", "sphinx (<2)", "tox"]
 
 [[package]]
+name = "distro"
+version = "1.9.0"
+description = "Distro - an OS platform information API"
+optional = false
+python-versions = ">=3.6"
+groups = ["main", "dev", "test", "typing"]
+files = [
+    {file = "distro-1.9.0-py3-none-any.whl", hash = "sha256:7bffd925d65168f85027d8da9af6bddab658135b840670a223589bc0c8ef02b2"},
+    {file = "distro-1.9.0.tar.gz", hash = "sha256:2fa77c6fd8940f116ee1d6b94a2f90b13b5ea8d019b98bc8bafdcabcdd9bdbed"},
+]
+
+[[package]]
 name = "effdet"
 version = "0.4.1"
 description = "EfficientDet for PyTorch"
@@ -1656,23 +1668,27 @@ six = "*"
 
 [[package]]
 name = "langsmith"
-version = "0.8.18"
+version = "0.9.3"
 description = "Client library to connect to the LangSmith Observability and Evaluation Platform."
 optional = false
 python-versions = ">=3.10"
 groups = ["main", "dev", "test", "typing"]
 files = [
-    {file = "langsmith-0.8.18-py3-none-any.whl", hash = "sha256:3940183349993faef48e6c7d08e4822ee9cefd906b362d0e3c2d650314d2f282"},
-    {file = "langsmith-0.8.18.tar.gz", hash = "sha256:32dde9c0e67e053e0fb738921fc8ced768af7b8fa83d7a0e3fd63597cf8776dd"},
+    {file = "langsmith-0.9.3-py3-none-any.whl", hash = "sha256:aac85686868a7e61d77858b880230e510583c61ea48ac0a197e6ceff64ffb22b"},
+    {file = "langsmith-0.9.3.tar.gz", hash = "sha256:868a007b3ecda002914b21212a953c77fcb1d71a8a09a94562c3b57941d3df3a"},
 ]
 
 [package.dependencies]
+anyio = ">=3.5.0"
+distro = ">=1.7.0"
 httpx = ">=0.23.0,<1"
 orjson = {version = ">=3.9.14", markers = "platform_python_implementation != \"PyPy\""}
 packaging = ">=23.2"
 pydantic = ">=2,<3"
 requests = ">=2.0.0"
 requests-toolbelt = ">=1.0.0"
+sniffio = ">=1.1"
+typing-extensions = ">=4.0.0"
 uuid-utils = ">=0.12.0,<1.0"
 websockets = ">=15.0"
 xxhash = ">=3.0.0"

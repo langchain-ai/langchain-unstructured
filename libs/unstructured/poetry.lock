@@ -58,7 +58,7 @@ files = [
     {file = "annotated_doc-0.0.4-py3-none-any.whl", hash = "sha256:571ac1dc6991c450b25a9c2d84a3705e2ae7a53467b5d111c24fa8baabbed320"},
     {file = "annotated_doc-0.0.4.tar.gz", hash = "sha256:fbcda96e87e9c92ad167c2e53839e57503ecfda18804ea28102353485033faa4"},
 ]
-markers = {typing = "python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and python_version < \"3.13\"", typing = "python_version < \"3.13\""}
 
 [[package]]
 name = "annotated-types"
@@ -523,7 +523,7 @@ files = [
     {file = "click-8.1.7-py3-none-any.whl", hash = "sha256:ae74fb96c20a0277a1d615f1e4d73c8414f5a98db8b799a7931d1582f3390c28"},
     {file = "click-8.1.7.tar.gz", hash = "sha256:ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"},
 ]
-markers = {typing = "python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and python_version < \"3.13\"", typing = "python_version < \"3.13\""}
 
 [package.dependencies]
 colorama = {version = "*", markers = "platform_system == \"Windows\""}
@@ -557,7 +557,7 @@ files = [
     {file = "colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"},
     {file = "colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"},
 ]
-markers = {main = "platform_system == \"Windows\"", test = "sys_platform == \"win32\"", typing = "platform_system == \"Windows\" and python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and platform_system == \"Windows\" and python_version < \"3.13\"", test = "sys_platform == \"win32\"", typing = "platform_system == \"Windows\" and python_version < \"3.13\""}
 
 [[package]]
 name = "coloredlogs"
@@ -764,7 +764,7 @@ files = [
     {file = "cuda_bindings-12.9.4-cp39-cp39-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:9866ceec83e39337d1a1d64837864c964ad902992478caa288a0bc1be95f21aa"},
     {file = "cuda_bindings-12.9.4-cp39-cp39-win_amd64.whl", hash = "sha256:37744e721a18a514423e81863f52a4f7f46f5a6f9cccd569f2735f8067f4d8c2"},
 ]
-markers = {main = "platform_machine == \"x86_64\" and extra == \"local\" and platform_system == \"Linux\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and platform_system == \"Linux\" and platform_machine == \"x86_64\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
 
 [package.dependencies]
 cuda-pathfinder = ">=1.1,<2.0"
@@ -783,7 +783,7 @@ groups = ["main", "typing"]
 files = [
     {file = "cuda_pathfinder-1.3.5-py3-none-any.whl", hash = "sha256:6c88220f8637cb35d2a75c620d72efebf683b248b923713d8fbe235844c1a4b9"},
 ]
-markers = {main = "platform_machine == \"x86_64\" and extra == \"local\" and platform_system == \"Linux\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and platform_system == \"Linux\" and platform_machine == \"x86_64\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
 
 [[package]]
 name = "cycler"
@@ -834,7 +834,7 @@ files = [
     {file = "defusedxml-0.7.1-py2.py3-none-any.whl", hash = "sha256:a352e7e428770286cc899e2542b6cdaedb2b4953ff269a210103ec58f6198a61"},
     {file = "defusedxml-0.7.1.tar.gz", hash = "sha256:1bb3032db185915b62d7c6209c5a8792be6a32ab2fedacc84e01b52c51aa3e69"},
 ]
-markers = {typing = "python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and python_version < \"3.13\"", typing = "python_version < \"3.13\""}
 
 [[package]]
 name = "deprecated"
@@ -1056,7 +1056,7 @@ files = [
     {file = "fsspec-2024.10.0-py3-none-any.whl", hash = "sha256:03b9a6785766a4de40368b88906366755e2819e758b83705c88cd7cb5fe81871"},
     {file = "fsspec-2024.10.0.tar.gz", hash = "sha256:eda2d8a4116d4f2429db8550f2457da57279247dd930bb12f821b58391359493"},
 ]
-markers = {typing = "python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and python_version < \"3.13\"", typing = "python_version < \"3.13\""}
 
 [package.extras]
 abfs = ["adlfs"]
@@ -1316,7 +1316,7 @@ files = [
     {file = "hf_xet-1.5.1-cp37-abi3-win_arm64.whl", hash = "sha256:93d090b57b211133f6c0dab0205ef5cb6d89162979ba75a74845045cc3063b8e"},
     {file = "hf_xet-1.5.1.tar.gz", hash = "sha256:51ef4500dab3764b41135ee1381a4b62ce56fc54d4c92b719b59e597d6df5bf6"},
 ]
-markers = {main = "platform_machine == \"x86_64\" or platform_machine == \"amd64\" or platform_machine == \"AMD64\" or platform_machine == \"arm64\" or platform_machine == \"aarch64\"", typing = "(platform_machine == \"x86_64\" or platform_machine == \"amd64\" or platform_machine == \"AMD64\" or platform_machine == \"arm64\" or platform_machine == \"aarch64\") and python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and (platform_machine == \"x86_64\" or platform_machine == \"amd64\" or platform_machine == \"AMD64\" or platform_machine == \"arm64\" or platform_machine == \"aarch64\") and python_version < \"3.13\"", typing = "(platform_machine == \"x86_64\" or platform_machine == \"amd64\" or platform_machine == \"AMD64\" or platform_machine == \"arm64\" or platform_machine == \"aarch64\") and python_version < \"3.13\""}
 
 [package.extras]
 tests = ["pytest"]
@@ -1403,7 +1403,7 @@ files = [
     {file = "huggingface_hub-1.16.1-py3-none-any.whl", hash = "sha256:64340de934b9ce37857ef85a82de72f5629e8a270f9119eabb12bf495eb53c22"},
     {file = "huggingface_hub-1.16.1.tar.gz", hash = "sha256:7f1dc4c5ec21aed69be630ad0c3378616be16f3de1a47b141c0e812965d9c832"},
 ]
-markers = {typing = "python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and python_version < \"3.13\"", typing = "python_version < \"3.13\""}
 
 [package.dependencies]
 filelock = ">=3.10.0"
@@ -1502,7 +1502,7 @@ files = [
     {file = "joblib-1.4.2-py3-none-any.whl", hash = "sha256:06d478d5674cbc267e7496a410ee875abd68e4340feff4490bcb7afb88060ae6"},
     {file = "joblib-1.4.2.tar.gz", hash = "sha256:2382c5816b2636fbd20a09e0f4e9dad4736765fdfb7dca582943b9c1366b3f0e"},
 ]
-markers = {typing = "python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and python_version < \"3.13\"", typing = "python_version < \"3.13\""}
 
 [[package]]
 name = "jsonpatch"
@@ -2055,7 +2055,7 @@ files = [
     {file = "markdown_it_py-4.0.0-py3-none-any.whl", hash = "sha256:87327c59b172c5011896038353a81343b6754500a08cd7a4973bb48c6d578147"},
     {file = "markdown_it_py-4.0.0.tar.gz", hash = "sha256:cb0a2b4aa34f932c007117b194e945bd74e0ec24133ceb5bac59009cda1cb9f3"},
 ]
-markers = {typing = "python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and python_version < \"3.13\"", typing = "python_version < \"3.13\""}
 
 [package.dependencies]
 mdurl = ">=0.1,<1.0"
@@ -2250,7 +2250,7 @@ files = [
     {file = "mdurl-0.1.2-py3-none-any.whl", hash = "sha256:84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8"},
     {file = "mdurl-0.1.2.tar.gz", hash = "sha256:bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"},
 ]
-markers = {typing = "python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and python_version < \"3.13\"", typing = "python_version < \"3.13\""}
 
 [[package]]
 name = "ml-dtypes"
@@ -2300,13 +2300,14 @@ files = [
     {file = "ml_dtypes-0.5.4-cp39-cp39-win_amd64.whl", hash = "sha256:3d277bf3637f2a62176f4575512e9ff9ef51d00e39626d9fe4a161992f355af2"},
     {file = "ml_dtypes-0.5.4.tar.gz", hash = "sha256:8ab06a50fb9bf9666dd0fe5dfb4676fa2b0ac0f31ecff72a6c3af8e22c063453"},
 ]
-markers = {main = "extra == \"local\" and python_version < \"3.13\"", typing = "python_version < \"3.13\""}
+markers = {typing = "python_version < \"3.13\""}
 
 [package.dependencies]
 numpy = [
+    {version = ">=1.23.3", markers = "python_version == \"3.11\""},
     {version = ">=1.21.2", markers = "python_version >= \"3.10\""},
-    {version = ">=1.23.3", markers = "python_version >= \"3.11\""},
     {version = ">=1.26.0", markers = "python_version >= \"3.12\""},
+    {version = ">=2.1.0", markers = "python_version >= \"3.13\""},
 ]
 
 [package.extras]
@@ -2465,7 +2466,7 @@ files = [
     {file = "nltk-3.10.0-py3-none-any.whl", hash = "sha256:54ff84d4916d3ef127e8953bee0023f6a6b320b75d634a19e06ef056d3d244bf"},
     {file = "nltk-3.10.0.tar.gz", hash = "sha256:4fbac1d98203cbcd1b5d94a2877fb822300072d80604a5e7fae49d2c5f84e8c1"},
 ]
-markers = {typing = "python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and python_version < \"3.13\"", typing = "python_version < \"3.13\""}
 
 [package.dependencies]
 click = "*"
@@ -2525,6 +2526,7 @@ description = "Fundamental package for array computing in Python"
 optional = false
 python-versions = ">=3.9"
 groups = ["main", "typing"]
+markers = "python_version < \"3.13\""
 files = [
     {file = "numpy-1.26.4-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:9ff0f4f29c51e2803569d7a51c2304de5554655a60c5d776e35b4a41413830d0"},
     {file = "numpy-1.26.4-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:2e4ee3380d6de9c9ec04745830fd9e2eccb3e6cf790d39d7b98ffd19b0dd754a"},
@@ -2563,7 +2565,61 @@ files = [
     {file = "numpy-1.26.4-pp39-pypy39_pp73-win_amd64.whl", hash = "sha256:7e50d0a0cc3189f9cb0aeb3a6a6af18c16f59f004b866cd2be1c14b36134a4a0"},
     {file = "numpy-1.26.4.tar.gz", hash = "sha256:2a02aba9ed12e4ac4eb3ea9421c420301a0c6460d9830d74a9df87efa4912010"},
 ]
-markers = {typing = "python_version < \"3.13\""}
+
+[[package]]
+name = "numpy"
+version = "2.5.1"
+description = "Fundamental package for array computing in Python"
+optional = false
+python-versions = ">=3.12"
+groups = ["main"]
+markers = "python_version >= \"3.13\""
+files = [
+    {file = "numpy-2.5.1-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:2c889b56fe48b1018f764b0eec8df59ab654e9148aa91faa12596043500de277"},
+    {file = "numpy-2.5.1-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:ab451b59c5643c570974c43aef780703ef1d3b4965d2be07afd530615a9358d1"},
+    {file = "numpy-2.5.1-cp312-cp312-macosx_14_0_arm64.whl", hash = "sha256:78798bd5b9ad744056af8efa90e3b9ddaa53272a0848a483084a1cc0a13b2dc0"},
+    {file = "numpy-2.5.1-cp312-cp312-macosx_14_0_x86_64.whl", hash = "sha256:2ae0ca40bcb22d6ba59c1dfd5446f49940b0f2d821fde133f10dda11f816b84e"},
+    {file = "numpy-2.5.1-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:61ac47e772e6b8ea489e1d2f441a34c5c3ac17327e7ce294cbdf535795ad4e75"},
+    {file = "numpy-2.5.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:59fda5e192b570217ec2580c96f00e9a7e12ef6866a900eb089b62c1a32545ca"},
+    {file = "numpy-2.5.1-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:f7119ebff1a9829e9f431a4f9d28e703023bb6b9fe7c8f724467dbfc27c94ab3"},
+    {file = "numpy-2.5.1-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:e824c2acf8862052246be5a44c15da1777940c60d010dd2aab897824d9c430f9"},
+    {file = "numpy-2.5.1-cp312-cp312-win32.whl", hash = "sha256:08d60c810432eb83360958dea0999ac4cfb94531ea8efcbf0b7f277c2068aeb2"},
+    {file = "numpy-2.5.1-cp312-cp312-win_amd64.whl", hash = "sha256:f7d60026c0bdb1380e83bfa7a0419c4577ee4b9a08880afcb6dadeb74c649fa2"},
+    {file = "numpy-2.5.1-cp312-cp312-win_arm64.whl", hash = "sha256:17a25e09640602e10bc8de0e6fa2b3fd68eedd84ba6d7842dc8f32f9ab87bd0b"},
+    {file = "numpy-2.5.1-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:0bfebd8695f9863592fe744be833a258120b14a9f39da255e8aa8fade2c0ddd1"},
+    {file = "numpy-2.5.1-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:30b44a6b53a7ae63c54c089a8726e5563ed302716c5b7ccc85afade40b0e7ff6"},
+    {file = "numpy-2.5.1-cp313-cp313-macosx_14_0_arm64.whl", hash = "sha256:6165343f81b56ef8f514f396989e529b61d9dc709b99421b07e9f3e698e2287d"},
+    {file = "numpy-2.5.1-cp313-cp313-macosx_14_0_x86_64.whl", hash = "sha256:4939237038ada79308dda3204ac6462df056b5672b2e25db1149cf873668b3e1"},
+    {file = "numpy-2.5.1-cp313-cp313-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:1c6759f538fb912fc46de0a6b1758ccf7b57bc7c7ebebc23974fdac3de8db0cd"},
+    {file = "numpy-2.5.1-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:9726558e8db4a5bf7929a70ae50f63abda4daf0efe810e3bfbab95976f75fc1a"},
+    {file = "numpy-2.5.1-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:3935f3b419b244a02732676fa5317a9193cc596a4c0646db07e5b421229ac9f7"},
+    {file = "numpy-2.5.1-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:dc932a65ded7ce9013d120845a2514dcccb1a67bfc8deb8d37633762951904a6"},
+    {file = "numpy-2.5.1-cp313-cp313-win32.whl", hash = "sha256:4b4ff1608417eb7a59da7b967bbb798cacfe071d2caf526a24281cd562072ed9"},
+    {file = "numpy-2.5.1-cp313-cp313-win_amd64.whl", hash = "sha256:6c3fe51bc6a16453d452997053454f309e8e0ed7b42d6b361ce4ac8c32913d74"},
+    {file = "numpy-2.5.1-cp313-cp313-win_arm64.whl", hash = "sha256:f7feb014281029e628ba2d5a007407443b06e418b6fe451d1e2adcbc8eba0107"},
+    {file = "numpy-2.5.1-cp314-cp314-macosx_10_15_x86_64.whl", hash = "sha256:7c786fe9a5bbe360022e584c5a34cf6b54265c71bd7ec8ac3d8fec38968071f8"},
+    {file = "numpy-2.5.1-cp314-cp314-macosx_11_0_arm64.whl", hash = "sha256:32985c896d897419ef8da6917872d80b78ad0ea26d85b23245c7366ffde76d75"},
+    {file = "numpy-2.5.1-cp314-cp314-macosx_14_0_arm64.whl", hash = "sha256:efd736408cc97c79b9e6917338dfc8f06013b2274f992e96b1d9a81a71e2a2c2"},
+    {file = "numpy-2.5.1-cp314-cp314-macosx_14_0_x86_64.whl", hash = "sha256:ab84dc6b074fa881cae55bea94cc4f68e285181ba7f32497bf7dee6b1496165b"},
+    {file = "numpy-2.5.1-cp314-cp314-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:caf3e317d33d60c37986b452613f4ab51246d0691350c03d0cb4a898627f4a95"},
+    {file = "numpy-2.5.1-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:54ad769f17bc2d833b620851989f62054fb9ab93c969d9e1dc3c8e3d56beea21"},
+    {file = "numpy-2.5.1-cp314-cp314-musllinux_1_2_aarch64.whl", hash = "sha256:c12afb53450fa976d4c681c50a7423729a4c51c0465ed9f32b8a9cabbc472373"},
+    {file = "numpy-2.5.1-cp314-cp314-musllinux_1_2_x86_64.whl", hash = "sha256:e8c11c405efc5ff6816d5983c96cdfa215bab3428961243af3ff59b228490438"},
+    {file = "numpy-2.5.1-cp314-cp314-win32.whl", hash = "sha256:f2479a47f8d5932d1718168a681ad6e536a9df484c83cfcf9de365e164537ace"},
+    {file = "numpy-2.5.1-cp314-cp314-win_amd64.whl", hash = "sha256:24d0eb82c0541d3415a33425db64ae439dffccd7b4dbcb30e7c35120205c506a"},
+    {file = "numpy-2.5.1-cp314-cp314-win_arm64.whl", hash = "sha256:5a4c988b38d261deeeaad9954e3deb091ad905c94e8bb6708654ef1d97f286b0"},
+    {file = "numpy-2.5.1-cp314-cp314t-macosx_11_0_arm64.whl", hash = "sha256:a33276be12fa045805f477f22482088b66bb758ffbe89a9d21457de863a32e22"},
+    {file = "numpy-2.5.1-cp314-cp314t-macosx_14_0_arm64.whl", hash = "sha256:f089d7b00756190aacf1f5d34bdf38c3c430ac82b4f868f8cede73380460fce7"},
+    {file = "numpy-2.5.1-cp314-cp314t-macosx_14_0_x86_64.whl", hash = "sha256:09e9bfd8d2cf479c7d174804fb3811c53a8e9f20a37444008606b57d6b7a826d"},
+    {file = "numpy-2.5.1-cp314-cp314t-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:e68d8dd1e7eba712948f2053a29ec86917bc70ba1358df869d9f06649ef9cf09"},
+    {file = "numpy-2.5.1-cp314-cp314t-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:99d5095fa265a0c4152e7bb12759e14381ef5496152f1ce58f44bdf55c44beb4"},
+    {file = "numpy-2.5.1-cp314-cp314t-musllinux_1_2_aarch64.whl", hash = "sha256:ab87a91b3cc3382b8956095bd8f95e00cf679bb81554339be1a2ba404a1473c1"},
+    {file = "numpy-2.5.1-cp314-cp314t-musllinux_1_2_x86_64.whl", hash = "sha256:224ca51130ef7da85bea2191625181cb4f337f9cb64b471f10c1a12aa8b60077"},
+    {file = "numpy-2.5.1-cp314-cp314t-win32.whl", hash = "sha256:6eab239876581b2b3c5a242281b6007bbdbcd1c7085d7709bb57c5929b11e6bf"},
+    {file = "numpy-2.5.1-cp314-cp314t-win_amd64.whl", hash = "sha256:83ce9c80d5b521b0d77ddcbe5447c218d247929b6cc056ca5351342accfff0af"},
+    {file = "numpy-2.5.1-cp314-cp314t-win_arm64.whl", hash = "sha256:5a6db61f9aaa57e369905c67d852045d3c4f7126405b29d09b19dec118e9c9cb"},
+    {file = "numpy-2.5.1.tar.gz", hash = "sha256:a48a113e6afea91f5608793bafa7ef2ad481fefbda87ec5069f483de61cb9fa3"},
+]
 
 [[package]]
 name = "nvidia-cublas-cu12"
@@ -2577,7 +2633,7 @@ files = [
     {file = "nvidia_cublas_cu12-12.8.4.1-py3-none-manylinux_2_27_x86_64.whl", hash = "sha256:8ac4e771d5a348c551b2a426eda6193c19aa630236b418086020df5ba9667142"},
     {file = "nvidia_cublas_cu12-12.8.4.1-py3-none-win_amd64.whl", hash = "sha256:47e9b82132fa8d2b4944e708049229601448aaad7e6f296f630f2d1a32de35af"},
 ]
-markers = {main = "platform_machine == \"x86_64\" and extra == \"local\" and platform_system == \"Linux\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and platform_system == \"Linux\" and platform_machine == \"x86_64\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
 
 [[package]]
 name = "nvidia-cuda-cupti-cu12"
@@ -2591,7 +2647,7 @@ files = [
     {file = "nvidia_cuda_cupti_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:ea0cb07ebda26bb9b29ba82cda34849e73c166c18162d3913575b0c9db9a6182"},
     {file = "nvidia_cuda_cupti_cu12-12.8.90-py3-none-win_amd64.whl", hash = "sha256:bb479dcdf7e6d4f8b0b01b115260399bf34154a1a2e9fe11c85c517d87efd98e"},
 ]
-markers = {main = "platform_machine == \"x86_64\" and extra == \"local\" and platform_system == \"Linux\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and platform_system == \"Linux\" and platform_machine == \"x86_64\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
 
 [[package]]
 name = "nvidia-cuda-nvrtc-cu12"
@@ -2605,7 +2661,7 @@ files = [
     {file = "nvidia_cuda_nvrtc_cu12-12.8.93-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:fc1fec1e1637854b4c0a65fb9a8346b51dd9ee69e61ebaccc82058441f15bce8"},
     {file = "nvidia_cuda_nvrtc_cu12-12.8.93-py3-none-win_amd64.whl", hash = "sha256:7a4b6b2904850fe78e0bd179c4b655c404d4bb799ef03ddc60804247099ae909"},
 ]
-markers = {main = "platform_machine == \"x86_64\" and extra == \"local\" and platform_system == \"Linux\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and platform_system == \"Linux\" and platform_machine == \"x86_64\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
 
 [[package]]
 name = "nvidia-cuda-runtime-cu12"
@@ -2619,7 +2675,7 @@ files = [
     {file = "nvidia_cuda_runtime_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:adade8dcbd0edf427b7204d480d6066d33902cab2a4707dcfc48a2d0fd44ab90"},
     {file = "nvidia_cuda_runtime_cu12-12.8.90-py3-none-win_amd64.whl", hash = "sha256:c0c6027f01505bfed6c3b21ec546f69c687689aad5f1a377554bc6ca4aa993a8"},
 ]
-markers = {main = "platform_machine == \"x86_64\" and extra == \"local\" and platform_system == \"Linux\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and platform_system == \"Linux\" and platform_machine == \"x86_64\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
 
 [[package]]
 name = "nvidia-cudnn-cu12"
@@ -2633,7 +2689,7 @@ files = [
     {file = "nvidia_cudnn_cu12-9.10.2.21-py3-none-manylinux_2_27_x86_64.whl", hash = "sha256:949452be657fa16687d0930933f032835951ef0892b37d2d53824d1a84dc97a8"},
     {file = "nvidia_cudnn_cu12-9.10.2.21-py3-none-win_amd64.whl", hash = "sha256:c6288de7d63e6cf62988f0923f96dc339cea362decb1bf5b3141883392a7d65e"},
 ]
-markers = {main = "platform_machine == \"x86_64\" and extra == \"local\" and platform_system == \"Linux\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and platform_system == \"Linux\" and platform_machine == \"x86_64\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
 
 [package.dependencies]
 nvidia-cublas-cu12 = "*"
@@ -2650,7 +2706,7 @@ files = [
     {file = "nvidia_cufft_cu12-11.3.3.83-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:4d2dd21ec0b88cf61b62e6b43564355e5222e4a3fb394cac0db101f2dd0d4f74"},
     {file = "nvidia_cufft_cu12-11.3.3.83-py3-none-win_amd64.whl", hash = "sha256:7a64a98ef2a7c47f905aaf8931b69a3a43f27c55530c698bb2ed7c75c0b42cb7"},
 ]
-markers = {main = "platform_machine == \"x86_64\" and extra == \"local\" and platform_system == \"Linux\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and platform_system == \"Linux\" and platform_machine == \"x86_64\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
 
 [package.dependencies]
 nvidia-nvjitlink-cu12 = "*"
@@ -2666,7 +2722,7 @@ files = [
     {file = "nvidia_cufile_cu12-1.13.1.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:1d069003be650e131b21c932ec3d8969c1715379251f8d23a1860554b1cb24fc"},
     {file = "nvidia_cufile_cu12-1.13.1.3-py3-none-manylinux_2_27_aarch64.whl", hash = "sha256:4beb6d4cce47c1a0f1013d72e02b0994730359e17801d395bdcbf20cfb3bb00a"},
 ]
-markers = {main = "platform_machine == \"x86_64\" and extra == \"local\" and platform_system == \"Linux\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and platform_system == \"Linux\" and platform_machine == \"x86_64\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
 
 [[package]]
 name = "nvidia-curand-cu12"
@@ -2680,7 +2736,7 @@ files = [
     {file = "nvidia_curand_cu12-10.3.9.90-py3-none-manylinux_2_27_x86_64.whl", hash = "sha256:b32331d4f4df5d6eefa0554c565b626c7216f87a06a4f56fab27c3b68a830ec9"},
     {file = "nvidia_curand_cu12-10.3.9.90-py3-none-win_amd64.whl", hash = "sha256:f149a8ca457277da854f89cf282d6ef43176861926c7ac85b2a0fbd237c587ec"},
 ]
-markers = {main = "platform_machine == \"x86_64\" and extra == \"local\" and platform_system == \"Linux\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and platform_system == \"Linux\" and platform_machine == \"x86_64\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
 
 [[package]]
 name = "nvidia-cusolver-cu12"
@@ -2694,7 +2750,7 @@ files = [
     {file = "nvidia_cusolver_cu12-11.7.3.90-py3-none-manylinux_2_27_x86_64.whl", hash = "sha256:4376c11ad263152bd50ea295c05370360776f8c3427b30991df774f9fb26c450"},
     {file = "nvidia_cusolver_cu12-11.7.3.90-py3-none-win_amd64.whl", hash = "sha256:4a550db115fcabc4d495eb7d39ac8b58d4ab5d8e63274d3754df1c0ad6a22d34"},
 ]
-markers = {main = "platform_machine == \"x86_64\" and extra == \"local\" and platform_system == \"Linux\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and platform_system == \"Linux\" and platform_machine == \"x86_64\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
 
 [package.dependencies]
 nvidia-cublas-cu12 = "*"
@@ -2713,7 +2769,7 @@ files = [
     {file = "nvidia_cusparse_cu12-12.5.8.93-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:1ec05d76bbbd8b61b06a80e1eaf8cf4959c3d4ce8e711b65ebd0443bb0ebb13b"},
     {file = "nvidia_cusparse_cu12-12.5.8.93-py3-none-win_amd64.whl", hash = "sha256:9a33604331cb2cac199f2e7f5104dfbb8a5a898c367a53dfda9ff2acb6b6b4dd"},
 ]
-markers = {main = "platform_machine == \"x86_64\" and extra == \"local\" and platform_system == \"Linux\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and platform_system == \"Linux\" and platform_machine == \"x86_64\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
 
 [package.dependencies]
 nvidia-nvjitlink-cu12 = "*"
@@ -2730,7 +2786,7 @@ files = [
     {file = "nvidia_cusparselt_cu12-0.7.1-py3-none-manylinux2014_x86_64.whl", hash = "sha256:f1bb701d6b930d5a7cea44c19ceb973311500847f81b634d802b7b539dc55623"},
     {file = "nvidia_cusparselt_cu12-0.7.1-py3-none-win_amd64.whl", hash = "sha256:f67fbb5831940ec829c9117b7f33807db9f9678dc2a617fbe781cac17b4e1075"},
 ]
-markers = {main = "platform_machine == \"x86_64\" and extra == \"local\" and platform_system == \"Linux\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and platform_system == \"Linux\" and platform_machine == \"x86_64\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
 
 [[package]]
 name = "nvidia-nccl-cu12"
@@ -2743,7 +2799,7 @@ files = [
     {file = "nvidia_nccl_cu12-2.27.5-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:31432ad4d1fb1004eb0c56203dc9bc2178a1ba69d1d9e02d64a6938ab5e40e7a"},
     {file = "nvidia_nccl_cu12-2.27.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:ad730cf15cb5d25fe849c6e6ca9eb5b76db16a80f13f425ac68d8e2e55624457"},
 ]
-markers = {main = "platform_machine == \"x86_64\" and extra == \"local\" and platform_system == \"Linux\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and platform_system == \"Linux\" and platform_machine == \"x86_64\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
 
 [[package]]
 name = "nvidia-nvjitlink-cu12"
@@ -2757,7 +2813,7 @@ files = [
     {file = "nvidia_nvjitlink_cu12-12.8.93-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:adccd7161ace7261e01bb91e44e88da350895c270d23f744f0820c818b7229e7"},
     {file = "nvidia_nvjitlink_cu12-12.8.93-py3-none-win_amd64.whl", hash = "sha256:bd93fbeeee850917903583587f4fc3a4eafa022e34572251368238ab5e6bd67f"},
 ]
-markers = {main = "platform_machine == \"x86_64\" and extra == \"local\" and platform_system == \"Linux\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and platform_system == \"Linux\" and platform_machine == \"x86_64\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
 
 [[package]]
 name = "nvidia-nvshmem-cu12"
@@ -2770,7 +2826,7 @@ files = [
     {file = "nvidia_nvshmem_cu12-3.4.5-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:0b48363fc6964dede448029434c6abed6c5e37f823cb43c3bcde7ecfc0457e15"},
     {file = "nvidia_nvshmem_cu12-3.4.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:042f2500f24c021db8a06c5eec2539027d57460e1c1a762055a6554f72c369bd"},
 ]
-markers = {main = "platform_machine == \"x86_64\" and extra == \"local\" and platform_system == \"Linux\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and platform_system == \"Linux\" and platform_machine == \"x86_64\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
 
 [[package]]
 name = "nvidia-nvtx-cu12"
@@ -2784,7 +2840,7 @@ files = [
     {file = "nvidia_nvtx_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:5b17e2001cc0d751a5bc2c6ec6d26ad95913324a4adb86788c944f8ce9ba441f"},
     {file = "nvidia_nvtx_cu12-12.8.90-py3-none-win_amd64.whl", hash = "sha256:619c8304aedc69f02ea82dd244541a83c3d9d40993381b3b590f1adaed3db41e"},
 ]
-markers = {main = "platform_machine == \"x86_64\" and extra == \"local\" and platform_system == \"Linux\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and platform_system == \"Linux\" and platform_machine == \"x86_64\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
 
 [[package]]
 name = "olefile"
@@ -2821,51 +2877,44 @@ PyYAML = ">=5.1.0"
 
 [[package]]
 name = "onnx"
-version = "1.21.0"
+version = "1.22.0"
 description = "Open Neural Network Exchange"
 optional = false
 python-versions = ">=3.10"
 groups = ["main", "typing"]
 files = [
-    {file = "onnx-1.21.0-cp310-cp310-macosx_12_0_universal2.whl", hash = "sha256:e0c21cc5c7a41d1a509828e2b14fe9c30e807c6df611ec0fd64a47b8d4b16abd"},
-    {file = "onnx-1.21.0-cp310-cp310-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:e1931bfcc222a4c9da6475f2ffffb84b97ab3876041ec639171c11ce802bee6a"},
-    {file = "onnx-1.21.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:c9b56ad04039fac6b028c07e54afa1ec7f75dd340f65311f2c292e41ed7aa4d9"},
-    {file = "onnx-1.21.0-cp310-cp310-win32.whl", hash = "sha256:3abd09872523c7e0362d767e4e63bd7c6bac52a5e2c3edbf061061fe540e2027"},
-    {file = "onnx-1.21.0-cp310-cp310-win_amd64.whl", hash = "sha256:f2c7c234c568402e10db74e33d787e4144e394ae2bcbbf11000fbfe2e017ad68"},
-    {file = "onnx-1.21.0-cp311-cp311-macosx_12_0_universal2.whl", hash = "sha256:2aca19949260875c14866fc77ea0bc37e4e809b24976108762843d328c92d3ce"},
-    {file = "onnx-1.21.0-cp311-cp311-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:82aa6ab51144df07c58c4850cb78d4f1ae969d8c0bf657b28041796d49ba6974"},
-    {file = "onnx-1.21.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:10c3185a232089335581fabb98fba4e86d3e8246b8140f2e406082438100ebda"},
-    {file = "onnx-1.21.0-cp311-cp311-win32.whl", hash = "sha256:f53b3c15a3b539c16b99655c43c365622046d68c49b680c48eba4da2a4fb6f27"},
-    {file = "onnx-1.21.0-cp311-cp311-win_amd64.whl", hash = "sha256:5f78c411743db317a76e5d009f84f7e3d5380411a1567a868e82461a1e5c775d"},
-    {file = "onnx-1.21.0-cp311-cp311-win_arm64.whl", hash = "sha256:ab6a488dabbb172eebc9f3b3e7ac68763f32b0c571626d4a5004608f866cc83d"},
-    {file = "onnx-1.21.0-cp312-abi3-macosx_12_0_universal2.whl", hash = "sha256:fc2635400fe39ff37ebc4e75342cc54450eadadf39c540ff132c319bf4960095"},
-    {file = "onnx-1.21.0-cp312-abi3-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:9003d5206c01fa2ff4b46311566865d8e493e1a6998d4009ec6de39843f1b59b"},
-    {file = "onnx-1.21.0-cp312-abi3-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:a9261bd580fb8548c9c37b3c6750387eb8f21ea43c63880d37b2c622e1684285"},
-    {file = "onnx-1.21.0-cp312-abi3-win32.whl", hash = "sha256:9ea4e824964082811938a9250451d89c4ec474fe42dd36c038bfa5df31993d1e"},
-    {file = "onnx-1.21.0-cp312-abi3-win_amd64.whl", hash = "sha256:458d91948ad9a7729a347550553b49ab6939f9af2cddf334e2116e45467dc61f"},
-    {file = "onnx-1.21.0-cp312-abi3-win_arm64.whl", hash = "sha256:ca14bc4842fccc3187eb538f07eabeb25a779b39388b006db4356c07403a7bbb"},
-    {file = "onnx-1.21.0-cp313-cp313t-macosx_12_0_universal2.whl", hash = "sha256:257d1d1deb6a652913698f1e3f33ef1ca0aa69174892fe38946d4572d89dd94f"},
-    {file = "onnx-1.21.0-cp313-cp313t-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:7cd7cb8f6459311bdb557cbf6c0ccc6d8ace11c304d1bba0a30b4a4688e245f8"},
-    {file = "onnx-1.21.0-cp313-cp313t-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:7b58a4cfec8d9311b73dc083e4c1fa362069267881144c05139b3eba5dc3a840"},
-    {file = "onnx-1.21.0-cp313-cp313t-win_amd64.whl", hash = "sha256:1a9baf882562c4cebf79589bebb7cd71a20e30b51158cac3e3bbaf27da6163bd"},
-    {file = "onnx-1.21.0-cp313-cp313t-win_arm64.whl", hash = "sha256:bba12181566acf49b35875838eba49536a327b2944664b17125577d230c637ad"},
-    {file = "onnx-1.21.0-cp314-cp314t-macosx_12_0_universal2.whl", hash = "sha256:7ee9d8fd6a4874a5fa8b44bbcabea104ce752b20469b88bc50c7dcf9030779ad"},
-    {file = "onnx-1.21.0-cp314-cp314t-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:5489f25fe461e7f32128218251a466cabbeeaf1eaa791c79daebf1a80d5a2cc9"},
-    {file = "onnx-1.21.0-cp314-cp314t-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:db17fc0fec46180b6acbd1d5d8650a04e5527c02b09381da0b5b888d02a204c8"},
-    {file = "onnx-1.21.0-cp314-cp314t-win_amd64.whl", hash = "sha256:19d9971a3e52a12968ae6c70fd0f86c349536de0b0c33922ecdbe52d1972fe60"},
-    {file = "onnx-1.21.0-cp314-cp314t-win_arm64.whl", hash = "sha256:efba467efb316baf2a9452d892c2f982b9b758c778d23e38c7f44fa211b30bb9"},
-    {file = "onnx-1.21.0.tar.gz", hash = "sha256:4d8b67d0aaec5864c87633188b91cc520877477ec0254eda122bef8be43cd764"},
+    {file = "onnx-1.22.0-cp310-cp310-macosx_12_0_universal2.whl", hash = "sha256:6d0ffffd63a4ecc21ddaeddd5bf02099cb701aa4243f2de00122726869065ca4"},
+    {file = "onnx-1.22.0-cp310-cp310-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:33ce94119bbb7f05d9caea4ea7549f5185a54369f6bbc9f70171bd5ee6935bbc"},
+    {file = "onnx-1.22.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:87a3077958f66f9a26dec10077ac28326d9cec2cbe1f0b040947243449754573"},
+    {file = "onnx-1.22.0-cp310-cp310-win32.whl", hash = "sha256:8a5eccce2d5fc6c5046928a9aa7cdd9750ea4a586f8de341d3d40d820c35fdec"},
+    {file = "onnx-1.22.0-cp310-cp310-win_amd64.whl", hash = "sha256:5c1c0408a9d4b4df33851672e5fc7590b96301ee123396d608f9ab6f045ab06b"},
+    {file = "onnx-1.22.0-cp311-cp311-macosx_12_0_universal2.whl", hash = "sha256:2d8f229a553fa440fe623ed7b36fca5e7762da3af871c3f8f8ce451df73e2914"},
+    {file = "onnx-1.22.0-cp311-cp311-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:a1a89a7cb9ba13d78f009bdec448ec82a98972589734f157022a2bff7a5973a6"},
+    {file = "onnx-1.22.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:1d0a2bdb15eb2b3cb65c438f3423d9620d14fdce32f92380e6bb1b2e09568ef5"},
+    {file = "onnx-1.22.0-cp311-cp311-win32.whl", hash = "sha256:239958534464612fbcb6ed23d5228aaa925b39b8773f58726809ffdccb4edd1c"},
+    {file = "onnx-1.22.0-cp311-cp311-win_amd64.whl", hash = "sha256:8561a2c00041c07e08db0c228593b5b4694100398685f348532af7dbb84189da"},
+    {file = "onnx-1.22.0-cp311-cp311-win_arm64.whl", hash = "sha256:8907b9b9389893bc0dc6314cc00ee1e3a69844e48d689eacc6a0340411a7da58"},
+    {file = "onnx-1.22.0-cp312-abi3-macosx_12_0_universal2.whl", hash = "sha256:596fbf0490947533c1c1045ba860851dc9fb77471023dac9a71ba5b42ceab103"},
+    {file = "onnx-1.22.0-cp312-abi3-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:ae5a563f281cd9d2845622cecf6c092a57e4ee1b138f66fdbbdd4200567a5e16"},
+    {file = "onnx-1.22.0-cp312-abi3-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:955e02e1f6d385b53d52f9cd7b9cdf5caf417c300bcfe3c64c6d542be763845b"},
+    {file = "onnx-1.22.0-cp312-abi3-pyemscripten_2025_0_wasm32.whl", hash = "sha256:82e9f27fc1223cb06d68a56bed6f9d3caf3d0dad1b61bce45006d529b15bd94c"},
+    {file = "onnx-1.22.0-cp312-abi3-win32.whl", hash = "sha256:cc8b66b312f8f03a53e268afb67180a2d97dd12cc79e2b61361c6c0073448016"},
+    {file = "onnx-1.22.0-cp312-abi3-win_amd64.whl", hash = "sha256:72ccebab3bac07215c204ce8848d42e78eaaa666badbf72d25cd359b9f269e3a"},
+    {file = "onnx-1.22.0-cp312-abi3-win_arm64.whl", hash = "sha256:f3c120dcdb70ad738f3c061b32798f408ea299eb69f84dd69ab4a6bf3c2ec01f"},
+    {file = "onnx-1.22.0-cp314-cp314t-macosx_12_0_universal2.whl", hash = "sha256:19e45e4af88e3fe3261458d4b8cc461957ae2782a358a3560503569bf3b23b72"},
+    {file = "onnx-1.22.0-cp314-cp314t-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:c21a0e59fd967a95b358e4a6e756d1f1eec2d304a83480f329f66e30d2bf0223"},
+    {file = "onnx-1.22.0-cp314-cp314t-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:2632406b8f523ef2e2873c363f90b20a3d88c0fbcfac757d3addffccf8f452c2"},
+    {file = "onnx-1.22.0-cp314-cp314t-win_amd64.whl", hash = "sha256:a3a39fc4643867aecb33417fdddb11e308ee79d2d4a584b9d50cc7aec2091b13"},
+    {file = "onnx-1.22.0-cp314-cp314t-win_arm64.whl", hash = "sha256:8e268cdc0547e3949799ffd4a44451dc2b9080b57d0824a2db680b6ec65506f0"},
+    {file = "onnx-1.22.0.tar.gz", hash = "sha256:ef40c0aaf0b643857ea9306fc7eddce17eaf9fb0407e4801f1fc5758443a38e0"},
 ]
-markers = {main = "extra == \"local\" and python_version < \"3.13\"", typing = "python_version < \"3.13\""}
+markers = {typing = "python_version < \"3.13\""}
 
 [package.dependencies]
-ml_dtypes = [
-    {version = ">=0.5.0", markers = "platform_machine != \"s390x\""},
-    {version = ">=0.5.4", markers = "platform_machine == \"s390x\""},
-]
+ml_dtypes = ">=0.5.4"
 numpy = ">=1.23.2"
 protobuf = ">=4.25.1"
-typing_extensions = ">=4.7.1"
+typing_extensions = ">=4.15.0"
 
 [package.extras]
 reference = ["Pillow"]
@@ -3493,7 +3542,7 @@ files = [
     {file = "protobuf-5.29.6-py3-none-any.whl", hash = "sha256:6b9edb641441b2da9fa8f428760fc136a49cf97a52076010cf22a2ff73438a86"},
     {file = "protobuf-5.29.6.tar.gz", hash = "sha256:da9ee6a5424b6b30fd5e45c5ea663aef540ca95f9ad99d1e887e819cdf9b8723"},
 ]
-markers = {main = "extra == \"local\" and python_version < \"3.13\"", typing = "python_version < \"3.13\""}
+markers = {typing = "python_version < \"3.13\""}
 
 [[package]]
 name = "psutil"
@@ -3780,7 +3829,7 @@ files = [
     {file = "pygments-2.19.2-py3-none-any.whl", hash = "sha256:86540386c03d588bb81d44bc3928634ff26449851e99741617ecb9037ee5ec0b"},
     {file = "pygments-2.19.2.tar.gz", hash = "sha256:636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"},
 ]
-markers = {typing = "python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and python_version < \"3.13\"", typing = "python_version < \"3.13\""}
 
 [package.extras]
 windows-terminal = ["colorama (>=0.4.6)"]
@@ -4361,7 +4410,7 @@ files = [
     {file = "regex-2026.7.10-cp314-cp314t-win_arm64.whl", hash = "sha256:749b92640e1970e881fdf22a411d74bf9d049b154f4ef7232eeb9a90dd8be7f3"},
     {file = "regex-2026.7.10.tar.gz", hash = "sha256:1050fedf0a8a92e843971120c2f57c3a99bea86c0dfa1d63a9fac053fe54b135"},
 ]
-markers = {typing = "python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and python_version < \"3.13\"", typing = "python_version < \"3.13\""}
 
 [[package]]
 name = "requests"
@@ -4411,7 +4460,7 @@ files = [
     {file = "rich-14.3.3-py3-none-any.whl", hash = "sha256:793431c1f8619afa7d3b52b2cdec859562b950ea0d4b6b505397612db8d5362d"},
     {file = "rich-14.3.3.tar.gz", hash = "sha256:b8daa0b9e4eef54dd8cf7c86c03713f53241884e814f4e2f5fb342fe520f639b"},
 ]
-markers = {typing = "python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and python_version < \"3.13\"", typing = "python_version < \"3.13\""}
 
 [package.dependencies]
 markdown-it-py = ">=2.2.0"
@@ -4583,7 +4632,7 @@ files = [
     {file = "safetensors-0.4.5-pp39-pypy39_pp73-musllinux_1_1_x86_64.whl", hash = "sha256:834001bed193e4440c4a3950a31059523ee5090605c907c66808664c932b549c"},
     {file = "safetensors-0.4.5.tar.gz", hash = "sha256:d73de19682deabb02524b3d5d1f8b3aaba94c72f1bbfc7911b9b9d5d391c0310"},
 ]
-markers = {typing = "python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and python_version < \"3.13\"", typing = "python_version < \"3.13\""}
 
 [package.extras]
 all = ["safetensors[jax]", "safetensors[numpy]", "safetensors[paddlepaddle]", "safetensors[pinned-tf]", "safetensors[quality]", "safetensors[testing]", "safetensors[torch]"]
@@ -4675,7 +4724,7 @@ files = [
     {file = "shellingham-1.5.4-py2.py3-none-any.whl", hash = "sha256:7ecfff8f2fd72616f7481040475a65b2bf8af90a56c89140852d1120324e8686"},
     {file = "shellingham-1.5.4.tar.gz", hash = "sha256:8dbca0739d487e5bd35ab3ca4b36e11c4078f3a234bfce294b0a0291363404de"},
 ]
-markers = {typing = "python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and python_version < \"3.13\"", typing = "python_version < \"3.13\""}
 
 [[package]]
 name = "six"
@@ -4713,7 +4762,7 @@ files = [
     {file = "soupsieve-2.8.4-py3-none-any.whl", hash = "sha256:e7e6b0769c8f51ed59acab6e994b00621096cfb1c640a7509295987388fbaf65"},
     {file = "soupsieve-2.8.4.tar.gz", hash = "sha256:e121fd02e975c695e4e9e8774a5ee35d74714b59307868dcc5319ad2d9e3328e"},
 ]
-markers = {typing = "python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and python_version < \"3.13\"", typing = "python_version < \"3.13\""}
 
 [[package]]
 name = "sympy"
@@ -4803,7 +4852,7 @@ files = [
     {file = "tokenizers-0.22.2-pp39-pypy39_pp73-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:143b999bdc46d10febb15cbffb4207ddd1f410e2c755857b5a0797961bbdc113"},
     {file = "tokenizers-0.22.2.tar.gz", hash = "sha256:473b83b915e547aa366d1eee11806deaf419e17be16310ac0a14077f1e28f917"},
 ]
-markers = {typing = "python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and python_version < \"3.13\"", typing = "python_version < \"3.13\""}
 
 [package.dependencies]
 huggingface-hub = ">=0.16.4,<2.0"
@@ -4966,7 +5015,7 @@ files = [
     {file = "tqdm-4.67.0-py3-none-any.whl", hash = "sha256:0cd8af9d56911acab92182e88d763100d4788bdf421d251616040cc4d44863be"},
     {file = "tqdm-4.67.0.tar.gz", hash = "sha256:fe5a6f95e6fe0b9755e9469b77b9c3cf850048224ecaa8293d7d2d31f97d869a"},
 ]
-markers = {typing = "python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and python_version < \"3.13\"", typing = "python_version < \"3.13\""}
 
 [package.dependencies]
 colorama = {version = "*", markers = "platform_system == \"Windows\""}
@@ -4989,7 +5038,7 @@ files = [
     {file = "transformers-5.5.0-py3-none-any.whl", hash = "sha256:821a9ff0961abbb29eb1eb686d78df1c85929fdf213a3fe49dc6bd94f9efa944"},
     {file = "transformers-5.5.0.tar.gz", hash = "sha256:c8db656cf51c600cd8c75f06b20ef85c72e8b8ff9abc880c5d3e8bc70e0ddcbd"},
 ]
-markers = {typing = "python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and python_version < \"3.13\"", typing = "python_version < \"3.13\""}
 
 [package.dependencies]
 huggingface-hub = ">=1.5.0,<2.0"
@@ -5057,7 +5106,7 @@ files = [
     {file = "triton-3.6.0-cp314-cp314t-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:0b3a97e8ed304dfa9bd23bb41ca04cdf6b2e617d5e782a8653d616037a5d537d"},
     {file = "triton-3.6.0-cp314-cp314t-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:46bd1c1af4b6704e554cad2eeb3b0a6513a980d470ccfa63189737340c7746a7"},
 ]
-markers = {main = "platform_machine == \"x86_64\" and extra == \"local\" and platform_system == \"Linux\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and platform_system == \"Linux\" and platform_machine == \"x86_64\" and python_version < \"3.13\"", typing = "platform_machine == \"x86_64\" and platform_system == \"Linux\" and python_version < \"3.13\""}
 
 [package.extras]
 build = ["cmake (>=3.20,<4.0)", "lit"]
@@ -5075,7 +5124,7 @@ files = [
     {file = "typer-0.23.1-py3-none-any.whl", hash = "sha256:3291ad0d3c701cbf522012faccfbb29352ff16ad262db2139e6b01f15781f14e"},
     {file = "typer-0.23.1.tar.gz", hash = "sha256:2070374e4d31c83e7b61362fd859aa683576432fd5b026b060ad6b4cd3b86134"},
 ]
-markers = {typing = "python_version < \"3.13\""}
+markers = {main = "extra == \"local\" and python_version < \"3.13\"", typing = "python_version < \"3.13\""}
 
 [package.dependencies]
 annotated-doc = ">=0.0.2"

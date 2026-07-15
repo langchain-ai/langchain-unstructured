@@ -13,11 +13,17 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = ">=3.10.0,<4.0.0"
-langchain-core = "^1.0.5"
+# GHSA-2g6r-c272-w58r, GHSA-926x-3r5x-gfhw, GHSA-pjwx-r37v-7724,
+# GHSA-qh6h-p6c9-ff54: langchain-core < 1.3.3 has SSRF, prompt validation,
+# unsafe deserialization, and path traversal vulnerabilities.
+langchain-core = ">=1.3.3,<2.0.0"
 unstructured-client = { version = ">=0.27.0,<1" }
 unstructured = { version = "^0.18.18", optional = true, python = "<3.13", extras = [
   "all-docs",
 ] }
+# PYSEC-2026-2132: click < 8.3.3 is vulnerable.
+# Remove once upstream deps require >= 8.3.3.
+click = ">=8.3.3"
 # CVE-2024-56201, CVE-2024-56326, CVE-2025-27516: jinja2 <= 3.1.5 has sandbox breakout vulnerabilities.
 # Remove once upstream deps require >= 3.1.6.
 jinja2 = ">=3.1.6"
@@ -36,9 +42,30 @@ filelock = ">=3.20.3"
 # CVE-2026-25528: langsmith >= 0.4.10, < 0.6.3 is vulnerable to SSRF via tracing header injection.
 # Remove once upstream deps require >= 0.6.3.
 langsmith = ">=0.6.3"
+# GHSA-5wmx-573v-2qwq: markdown < 3.8.1 has an uncaught exception vulnerability.
+# Remove once upstream deps require >= 3.8.1.
+markdown = ">=3.8.1"
+# GHSA-f83h-ghpp-7wcc, GHSA-wf5f-4jwr-ppcp: pdfminer-six < 20251230 has unsafe deserialization vulnerabilities.
+# Remove once upstream deps require >= 20251230.
+pdfminer-six = ">=20251230"
+# PYSEC-2026-2248: pi-heif < 1.3.0 is vulnerable.
+# Remove once upstream deps require >= 1.3.0.
+pi-heif = ">=1.3.0"
+# PYSEC-2026-2253, PYSEC-2026-2254, PYSEC-2026-2255, PYSEC-2026-2256, PYSEC-2026-2257: pillow < 12.3.0 is vulnerable.
+# Remove once upstream deps require >= 12.3.0.
+pillow = ">=12.3.0"
+# GHSA-5239-wwwm-4pmq: pygments < 2.20.0 has a ReDoS vulnerability.
+# Remove once upstream deps require >= 2.20.0.
+pygments = ">=2.20.0"
+# PYSEC-2026-3447: setuptools < 83.0.0 is vulnerable.
+# Remove once upstream deps require >= 83.0.0.
+setuptools = ">=83.0.0"
+# GHSA-rrmf-rvhw-rf47: torch <= 2.12.0 has a memory corruption vulnerability.
+# Remove once upstream deps require > 2.12.0.
+torch = { version = ">2.12.0", optional = true, python = "<3.13" }
 
 [tool.poetry.extras]
-local = ["unstructured"]
+local = ["unstructured", "torch"]
 
 [tool.poetry.group.test]
 optional = true

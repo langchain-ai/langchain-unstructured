@@ -875,7 +875,7 @@ files = [
     {file = "defusedxml-0.7.1-py2.py3-none-any.whl", hash = "sha256:a352e7e428770286cc899e2542b6cdaedb2b4953ff269a210103ec58f6198a61"},
     {file = "defusedxml-0.7.1.tar.gz", hash = "sha256:1bb3032db185915b62d7c6209c5a8792be6a32ab2fedacc84e01b52c51aa3e69"},
 ]
-markers = {main = "extra == \"local\" and python_version < \"3.13\"", typing = "python_version < \"3.13\""}
+markers = {typing = "python_version < \"3.13\""}
 
 [[package]]
 name = "deprecated"
@@ -1543,7 +1543,7 @@ files = [
     {file = "joblib-1.4.2-py3-none-any.whl", hash = "sha256:06d478d5674cbc267e7496a410ee875abd68e4340feff4490bcb7afb88060ae6"},
     {file = "joblib-1.4.2.tar.gz", hash = "sha256:2382c5816b2636fbd20a09e0f4e9dad4736765fdfb7dca582943b9c1366b3f0e"},
 ]
-markers = {main = "extra == \"local\" and python_version < \"3.13\"", typing = "python_version < \"3.13\""}
+markers = {typing = "python_version < \"3.13\""}
 
 [[package]]
 name = "jsonpatch"
@@ -2514,16 +2514,16 @@ test = ["pytest (>=7.2)", "pytest-cov (>=4.0)"]
 
 [[package]]
 name = "nltk"
-version = "3.10.0"
+version = "3.10.3"
 description = "Natural Language Toolkit"
 optional = false
 python-versions = ">=3.10"
 groups = ["main", "typing"]
 files = [
-    {file = "nltk-3.10.0-py3-none-any.whl", hash = "sha256:54ff84d4916d3ef127e8953bee0023f6a6b320b75d634a19e06ef056d3d244bf"},
-    {file = "nltk-3.10.0.tar.gz", hash = "sha256:4fbac1d98203cbcd1b5d94a2877fb822300072d80604a5e7fae49d2c5f84e8c1"},
+    {file = "nltk-3.10.3-py3-none-any.whl", hash = "sha256:ff9598a8e20518ee0d557745890cc4435b9578489e2dcbc69c4f81fa060caf7c"},
+    {file = "nltk-3.10.3.tar.gz", hash = "sha256:bb9327a461c3811c2fa4900e03840401f2126adfb30c0072827c433bd2444ea4"},
 ]
-markers = {main = "extra == \"local\" and python_version < \"3.13\"", typing = "python_version < \"3.13\""}
+markers = {typing = "python_version < \"3.13\""}
 
 [package.dependencies]
 click = "*"
@@ -4460,7 +4460,7 @@ files = [
     {file = "regex-2026.7.10-cp314-cp314t-win_arm64.whl", hash = "sha256:749b92640e1970e881fdf22a411d74bf9d049b154f4ef7232eeb9a90dd8be7f3"},
     {file = "regex-2026.7.10.tar.gz", hash = "sha256:1050fedf0a8a92e843971120c2f57c3a99bea86c0dfa1d63a9fac053fe54b135"},
 ]
-markers = {main = "extra == \"local\" and python_version < \"3.13\"", typing = "python_version < \"3.13\""}
+markers = {typing = "python_version < \"3.13\""}
 
 [[package]]
 name = "requests"
@@ -5036,7 +5036,7 @@ files = [
     {file = "tqdm-4.67.0-py3-none-any.whl", hash = "sha256:0cd8af9d56911acab92182e88d763100d4788bdf421d251616040cc4d44863be"},
     {file = "tqdm-4.67.0.tar.gz", hash = "sha256:fe5a6f95e6fe0b9755e9469b77b9c3cf850048224ecaa8293d7d2d31f97d869a"},
 ]
-markers = {main = "extra == \"local\" and python_version < \"3.13\"", typing = "python_version < \"3.13\""}
+markers = {typing = "python_version < \"3.13\""}
 
 [package.dependencies]
 colorama = {version = "*", markers = "platform_system == \"Windows\""}

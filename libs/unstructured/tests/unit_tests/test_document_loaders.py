@@ -4,7 +4,6 @@ from unittest import mock
 from unittest.mock import Mock, mock_open, patch
 
 import pytest
-from unstructured.documents.elements import Text  # type: ignore[import-not-found]
 
 from langchain_unstructured.document_loaders import (
     UnstructuredLoader,
@@ -141,7 +140,7 @@ def test_it_partitions_locally_and_logs_warning_with_partition_via_api_False(
     with patch.object(
         _SingleDocumentLoader, "_elements_via_local"
     ) as mock_get_elements_locally:
-        mock_get_elements_locally.return_value = [Text("Mock text element.")]
+        mock_get_elements_locally.return_value = [Mock()]
         loader = _SingleDocumentLoader(
             client=Mock(), partition_via_api=False, api_key="some_key"
         )

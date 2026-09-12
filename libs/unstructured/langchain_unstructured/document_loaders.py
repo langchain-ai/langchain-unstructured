@@ -18,7 +18,8 @@ Element: TypeAlias = Any
 
 logger = logging.getLogger(__file__)
 
-_DEFAULT_URL = "https://api.unstructuredapp.io/general/v0/general"
+# The SDK appends the operation path to this base URL.
+_DEFAULT_URL = "https://api.unstructuredapp.io"
 
 
 class UnstructuredLoader(BaseLoader):

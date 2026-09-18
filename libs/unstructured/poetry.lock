@@ -1559,39 +1559,11 @@ trio = ["trio (>=0.33.0,<1.0)"]
 
 [[package]]
 name = "httpx"
-version = "0.27.2"
-description = "The next generation HTTP client."
-optional = false
-python-versions = ">=3.8"
-groups = ["main", "dev", "test", "typing"]
-markers = "python_version < \"3.11\" or python_version >= \"3.13\" and python_version < \"3.15\""
-files = [
-    {file = "httpx-0.27.2-py3-none-any.whl", hash = "sha256:7bb2708e112d8fdd7829cd4243970f0c223274051cb35ee80c03301ee29a3df0"},
-    {file = "httpx-0.27.2.tar.gz", hash = "sha256:f7c2be1d2f3c3c3160d441802406b206c2b76f5947b11115e6df10c6c65e66c2"},
-]
-
-[package.dependencies]
-anyio = "*"
-certifi = "*"
-httpcore = "==1.*"
-idna = "*"
-sniffio = "*"
-
-[package.extras]
-brotli = ["brotli ; platform_python_implementation == \"CPython\"", "brotlicffi ; platform_python_implementation != \"CPython\""]
-cli = ["click (==8.*)", "pygments (==2.*)", "rich (>=10,<14)"]
-http2 = ["h2 (>=3,<5)"]
-socks = ["socksio (==1.*)"]
-zstd = ["zstandard (>=0.18.0)"]
-
-[[package]]
-name = "httpx"
 version = "0.28.1"
 description = "The next generation HTTP client."
 optional = false
 python-versions = ">=3.8"
 groups = ["main", "dev", "test", "typing"]
-markers = "python_version >= \"3.11\" and python_version < \"3.13\" or python_version >= \"3.15\""
 files = [
     {file = "httpx-0.28.1-py3-none-any.whl", hash = "sha256:d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad"},
     {file = "httpx-0.28.1.tar.gz", hash = "sha256:75e98c5f16b0f35b567856f597f06ff2270a374470a5c2392242528e3e3e42fc"},
@@ -4302,39 +4274,6 @@ rtl-text = ["arabic-reshaper", "python-bidi"]
 
 [[package]]
 name = "pypdfium2"
-version = "5.5.0"
-description = "Python bindings to PDFium"
-optional = false
-python-versions = ">=3.6"
-groups = ["main"]
-markers = "python_version < \"3.11\" or python_version >= \"3.13\" and python_version < \"3.15\""
-files = [
-    {file = "pypdfium2-5.5.0-py3-none-android_23_arm64_v8a.whl", hash = "sha256:414f0b4aef7413e04df7355043fb752f2efb6f9777e04fd880d302612dacf89f"},
-    {file = "pypdfium2-5.5.0-py3-none-android_23_armeabi_v7a.whl", hash = "sha256:126ff8b131d12f16ce96b3e85b7f413e5073212be06b571f157fe11ad221c274"},
-    {file = "pypdfium2-5.5.0-py3-none-macosx_11_0_arm64.whl", hash = "sha256:0770bd3f0be5c68443fc4017e43b1b1fe8f36877481cab70fd29b68b2c362e1b"},
-    {file = "pypdfium2-5.5.0-py3-none-macosx_11_0_x86_64.whl", hash = "sha256:5ab41a3b9953d9be44be35c36a2340f1d67c602db98a0d6f70006610871ae43a"},
-    {file = "pypdfium2-5.5.0-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:2492a22c3126a004cee2fa208ea4aa03ede2c7e205d05814934ab18f83d073e9"},
-    {file = "pypdfium2-5.5.0-py3-none-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:83ff93e08b1fadb00040564e2eccc99147fc1a632ba5daff745126b373d78446"},
-    {file = "pypdfium2-5.5.0-py3-none-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:b7e85de3332bedf8e5f157c248063b4eaf968660e1e490353b6e581d9f96a4c6"},
-    {file = "pypdfium2-5.5.0-py3-none-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:e258365f34b6e334bb415e44dd9b1ee78a6e525bf854a1e74af67af7ede7555b"},
-    {file = "pypdfium2-5.5.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:bec21d833404ca771f02fa5cefb0b73e2148f05cbdb3b5b9989bdd51d9b5cbac"},
-    {file = "pypdfium2-5.5.0-py3-none-manylinux_2_27_s390x.manylinux_2_28_s390x.whl", hash = "sha256:1dd6ccbe1b5e2e778e8b021e47f9485b4fd42eaa6c9bdda2631641724e1fcc04"},
-    {file = "pypdfium2-5.5.0-py3-none-manylinux_2_38_riscv64.manylinux_2_39_riscv64.whl", hash = "sha256:da3eada345570cec5e34872d1472d4ac542f0e650ccdb6c2eac08ae1a5f07c82"},
-    {file = "pypdfium2-5.5.0-py3-none-musllinux_1_2_aarch64.whl", hash = "sha256:a087fb4088c7433fd3d78833dbe42cfb66df3d5ac98e3edf66110520fb33c0f0"},
-    {file = "pypdfium2-5.5.0-py3-none-musllinux_1_2_armv7l.whl", hash = "sha256:e6418cdc500ef85a90319f9bc7f1c54fc133460379f509429403225d8a4c157f"},
-    {file = "pypdfium2-5.5.0-py3-none-musllinux_1_2_i686.whl", hash = "sha256:8f7b66eedfac26eb2df4b00936e081b0a1c76fb8ee1c12639d85c2e73b0769ef"},
-    {file = "pypdfium2-5.5.0-py3-none-musllinux_1_2_ppc64le.whl", hash = "sha256:faea3246591ce2ea6218cd06679071275e3c65f11c3f5c9091eb7fb07610af6a"},
-    {file = "pypdfium2-5.5.0-py3-none-musllinux_1_2_riscv64.whl", hash = "sha256:aba26d404b51a9de3d3e80c867a95c71abf1c79552001ae22707451e59186b3d"},
-    {file = "pypdfium2-5.5.0-py3-none-musllinux_1_2_s390x.whl", hash = "sha256:e0fa8f81679e6e71f26806f4db853571ee6435dc3bde7a46acdd182ef886a5b9"},
-    {file = "pypdfium2-5.5.0-py3-none-musllinux_1_2_x86_64.whl", hash = "sha256:ee22df3376d350eeb64d2002a1071e3a02c0d874c557a3cd8229a8fc572cdaac"},
-    {file = "pypdfium2-5.5.0-py3-none-win32.whl", hash = "sha256:ec62a00223d1222d2f35c0866dd79cdc24da070738544cdf51b17d332d4a7389"},
-    {file = "pypdfium2-5.5.0-py3-none-win_amd64.whl", hash = "sha256:15c32fbeebb5198afa785dd03e98906ebb4eded9ef8862e10f833c37b4a18786"},
-    {file = "pypdfium2-5.5.0-py3-none-win_arm64.whl", hash = "sha256:f618af0884c16c768539c44933a255039131dbbf39d68eded020da4f14958d73"},
-    {file = "pypdfium2-5.5.0.tar.gz", hash = "sha256:3283c61f54c3c546d140da201ef48a51c18b0ad54293091a010029ac13ece23a"},
-]
-
-[[package]]
-name = "pypdfium2"
 version = "5.13.0"
 description = "Python bindings to PDFium"
 optional = false
@@ -4364,7 +4303,7 @@ files = [
     {file = "pypdfium2-5.13.0-py3-none-win_arm64.whl", hash = "sha256:554a0b23376460af1410e3c915906895e2dac67a086b9e6ccde0643a795d3b0d"},
     {file = "pypdfium2-5.13.0.tar.gz", hash = "sha256:7ca2d8e31bd8d0d40c496416b7d8bea423388669ffd494929f50e8c3a82326b8"},
 ]
-markers = {main = "python_version >= \"3.11\" and python_version < \"3.13\" or python_version >= \"3.15\"", typing = "python_version >= \"3.11\" and python_version < \"3.13\""}
+markers = {typing = "python_version >= \"3.11\" and python_version < \"3.13\""}
 
 [[package]]
 name = "pytest"
@@ -5328,14 +5267,14 @@ files = [
 
 [[package]]
 name = "soupsieve"
-version = "2.8.4"
+version = "2.9"
 description = "A modern CSS selector implementation for Beautiful Soup."
 optional = false
-python-versions = ">=3.9"
-groups = ["main", "typing"]
+python-versions = ">=3.10"
+groups = ["main", "dev", "typing"]
 files = [
-    {file = "soupsieve-2.8.4-py3-none-any.whl", hash = "sha256:e7e6b0769c8f51ed59acab6e994b00621096cfb1c640a7509295987388fbaf65"},
-    {file = "soupsieve-2.8.4.tar.gz", hash = "sha256:e121fd02e975c695e4e9e8774a5ee35d74714b59307868dcc5319ad2d9e3328e"},
+    {file = "soupsieve-2.9-py3-none-any.whl", hash = "sha256:a2b2c76d67df2382d245409fd71e321a571717e58463efa32ace87dcadac2c12"},
+    {file = "soupsieve-2.9.tar.gz", hash = "sha256:acee8417325c5653e1377dc31eccad59eb82cbc65942afe6174c53b3aaad63fc"},
 ]
 markers = {main = "python_version >= \"3.11\" and python_version < \"3.13\" and extra == \"local\"", typing = "python_version >= \"3.11\" and python_version < \"3.13\""}
 
@@ -6054,25 +5993,11 @@ shellingham = ">=1.3.0"
 
 [[package]]
 name = "typing-extensions"
-version = "4.15.0"
-description = "Backported and Experimental Type Hints for Python 3.9+"
-optional = false
-python-versions = ">=3.9"
-groups = ["main", "dev", "test", "typing"]
-markers = "python_version >= \"3.15\""
-files = [
-    {file = "typing_extensions-4.15.0-py3-none-any.whl", hash = "sha256:f0fa19c6845758ab08074a0cfa8b7aecb71c999ca73d62883bc25cc018c4e548"},
-    {file = "typing_extensions-4.15.0.tar.gz", hash = "sha256:0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"},
-]
-
-[[package]]
-name = "typing-extensions"
 version = "4.16.0"
 description = "Backported and Experimental Type Hints for Python 3.9+"
 optional = false
 python-versions = ">=3.9"
 groups = ["main", "dev", "test", "typing"]
-markers = "python_version < \"3.15\""
 files = [
     {file = "typing_extensions-4.16.0-py3-none-any.whl", hash = "sha256:481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8"},
     {file = "typing_extensions-4.16.0.tar.gz", hash = "sha256:dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"},
@@ -6193,12 +6118,12 @@ version = "0.42.12"
 description = "Python Client SDK for Unstructured API"
 optional = false
 python-versions = ">=3.9.2"
-groups = ["main"]
-markers = "python_version < \"3.11\" or python_version >= \"3.13\" and python_version < \"3.15\""
+groups = ["main", "typing"]
 files = [
     {file = "unstructured_client-0.42.12-py3-none-any.whl", hash = "sha256:fe6f217066a0c308ba7213185524506dbfc3bb9d35df0ab79549291e9728a012"},
     {file = "unstructured_client-0.42.12.tar.gz", hash = "sha256:50eb6717d8c6513b14b309fce8d6551354e433da982b7a9161a889d8e6a11166"},
 ]
+markers = {typing = "python_version >= \"3.11\" and python_version < \"3.13\""}
 
 [package.dependencies]
 aiofiles = ">=24.1.0"
@@ -6208,28 +6133,6 @@ httpx = ">=0.27.0"
 pydantic = ">=2.11.2"
 pypdf = ">=6.2.0"
 pypdfium2 = ">=5.0.0"
-requests-toolbelt = ">=1.0.0"
-
-[[package]]
-name = "unstructured-client"
-version = "0.46.2"
-description = "Python Client SDK for Unstructured API"
-optional = false
-python-versions = ">=3.11"
-groups = ["main", "typing"]
-files = [
-    {file = "unstructured_client-0.46.2-py3-none-any.whl", hash = "sha256:42fe6d56631fcfb4e942db2c9304002aa39d7169fe4fc657760f013afb32e720"},
-    {file = "unstructured_client-0.46.2.tar.gz", hash = "sha256:f7de567c7c677475309142c719bc3e9824197cf2a5c44b8456aed67f77919136"},
-]
-markers = {main = "python_version >= \"3.11\" and python_version < \"3.13\" or python_version >= \"3.15\"", typing = "python_version >= \"3.11\" and python_version < \"3.13\""}
-
-[package.dependencies]
-aiofiles = ">=25.1.0"
-httpcore = ">=1.0.9"
-httpx = ">=0.28.1"
-pydantic = ">=2.12.5"
-pypdf = ">=6.9.2"
-pypdfium2 = ">=5.6.0"
 requests-toolbelt = ">=1.0.0"
 
 [[package]]

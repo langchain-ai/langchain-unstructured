@@ -13,6 +13,7 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = ">=3.10.0,<4.0.0"
+fsspec = ">=2026.6.0"
 # GHSA-2g6r-c272-w58r, GHSA-926x-3r5x-gfhw, GHSA-pjwx-r37v-7724,
 # GHSA-qh6h-p6c9-ff54: langchain-core < 1.3.3 has SSRF, prompt validation,
 # unsafe deserialization, and path traversal vulnerabilities.

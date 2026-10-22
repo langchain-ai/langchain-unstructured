@@ -17,7 +17,7 @@ fsspec = ">=2026.6.0"
 # GHSA-2g6r-c272-w58r, GHSA-926x-3r5x-gfhw, GHSA-pjwx-r37v-7724,
 # GHSA-qh6h-p6c9-ff54: langchain-core < 1.3.3 has SSRF, prompt validation,
 # unsafe deserialization, and path traversal vulnerabilities.
-langchain-core = ">=1.3.3"
+langchain-core = ">=1.3.3,<2.0.0"
 unstructured-client = { version = ">=0.27.0" }
 # CVE-2026-71428: unstructured < 0.24.0 is vulnerable to SSRF.
 unstructured = { version = ">=0.24.0", optional = true, python = ">=3.11,<3.13", extras = [

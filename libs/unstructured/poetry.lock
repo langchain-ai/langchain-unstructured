@@ -6753,4 +6753,4 @@ local = ["torch", "unstructured"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10.0,<4.0.0"
-content-hash = "20ab2d949ee489489c8f4215b33231015d636c1a495b7ae179241f5af7a45f16"
+content-hash = "e78d07e2af290719359f0ce1685ee115edc7cb9876060e4ba60b93009063c377"

@@ -47,7 +47,7 @@ Instantiate:
 from langchain_unstructured import UnstructuredLoader
 
 loader = UnstructuredLoader(
-    file_path = ["example.pdf", "fake.pdf"],
+    file_path=["example.pdf", "fake.pdf"],
     api_key=UNSTRUCTURED_API_KEY,
     partition_via_api=True,
     chunking_strategy="by_title",

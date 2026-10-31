@@ -215,3 +215,34 @@ def fake_multiple_docs_json_response() -> list[dict[str, Any]]:
             },
         },
     ]
+
+
+# --- _SingleDocumentLoader._sdk_partition_request ---
+
+
+def test_sdk_partition_request_uses_metadata_filename_for_file_objects() -> None:
+    import io
+
+    loader = _SingleDocumentLoader(
+        client=Mock(),
+        file=io.BytesIO(b"hello"),
+        partition_via_api=True,
+        api_key="some_key",
+        metadata_filename="report.pdf",
+    )
+
+    request = loader._sdk_partition_request
+
+    assert request.partition_parameters.files.file_name == "report.pdf"
+
+
+def test_sdk_partition_request_uses_file_path_for_paths(tmp_path: Any) -> None:
+    path = tmp_path / "doc.txt"
+    path.write_bytes(b"hello")
+    loader = _SingleDocumentLoader(
+        str(path), client=Mock(), partition_via_api=True, api_key="some_key"
+    )
+
+    request = loader._sdk_partition_request
+
+    assert request.partition_parameters.files.file_name == str(path)

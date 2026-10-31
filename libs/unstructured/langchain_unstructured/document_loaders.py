@@ -278,10 +278,13 @@ class _SingleDocumentLoader(BaseLoader):
 
     @property
     def _sdk_partition_request(self) -> operations.PartitionRequest:
+        # For file objects there is no path; fall back to `metadata_filename`,
+        # which callers already must pass for local partitioning.
+        file_name = self.file_path or self.unstructured_kwargs.get("metadata_filename")
         return operations.PartitionRequest(
             partition_parameters=shared.PartitionParameters(
                 files=shared.Files(
-                    content=self._file_content, file_name=str(self.file_path)
+                    content=self._file_content, file_name=str(file_name)
                 ),
                 **self.unstructured_kwargs,
             ),
